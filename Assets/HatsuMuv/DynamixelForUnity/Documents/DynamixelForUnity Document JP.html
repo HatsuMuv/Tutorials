@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Dynamixel For Unity Document - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{background:#fff;color:#333;display:block;overflow-x:auto;padding:.5em}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{background-color:#eaffea;color:#55a532}.hljs-deletion{background-color:#ffecec;color:#bd2c00}.hljs-link{text-decoration:underline}.markdown-body{word-wrap:break-word;font-size:16px;line-height:1.5}.markdown-body:after,.markdown-body:before{content:"";display:table}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;line-height:1;margin-left:-20px;padding-right:4px}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-bottom:16px;margin-top:0}.markdown-body hr{background-color:#e7e7e7;border:0;height:.25em;margin:24px 0;padding:0}.markdown-body blockquote{border-left:.25em solid #ddd;color:#777;font-size:16px;padding:0 1em}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{background-color:#fcfcfc;border:1px solid;border-color:#ccc #ccc #bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb;color:#555;display:inline-block;font-size:11px;line-height:10px;padding:3px 5px;vertical-align:middle}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{font-weight:600;line-height:1.25;margin-bottom:16px;margin-top:24px}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{border-bottom:1px solid #eee;padding-bottom:.3em}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{color:#777;font-size:.85em}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{list-style-type:none;padding:0}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-bottom:0;margin-top:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{font-size:1em;font-style:italic;font-weight:700;margin-top:16px;padding:0}.markdown-body dl dd{margin-bottom:16px;padding:0 16px}.markdown-body table{display:block;overflow:auto;width:100%;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{border:1px solid #ddd;padding:6px 13px}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{background-color:#fff;box-sizing:initial;max-width:100%}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{background-color:initial;max-width:none;vertical-align:text-top}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{border:1px solid #ddd;display:block;float:left;margin:13px 0 0;overflow:hidden;padding:7px;width:auto}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}.markdown-body span.align-center{clear:both;display:block;overflow:hidden}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{clear:both;display:block;overflow:hidden}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{background-color:#0000000a;border-radius:3px;font-size:85%;margin:0;padding:.2em 0}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{content:"\00a0";letter-spacing:-.2em}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{background:#0000;border:0;font-size:100%;margin:0;padding:0;white-space:pre;word-break:normal}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{border-radius:3px;font-size:85%;line-height:1.45;overflow:auto}.markdown-body:not(.next-editor) pre{background-color:#f7f7f7;padding:16px}.markdown-body pre code,.markdown-body pre tt{word-wrap:normal;background-color:initial;border:0;display:inline;line-height:inherit;margin:0;max-width:auto;overflow:visible;padding:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{font-size:12px;line-height:1;overflow:hidden;padding:5px;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{background:#fff;border:0;padding:10px 8px 9px;text-align:right}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{background:#f8f8f8;border-top:0;font-weight:700}.news .alert .markdown-body blockquote{border:0;padding:0 0 0 40px}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{cursor:default!important;float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle}.markdown-body{max-width:758px;overflow:visible!important;padding-bottom:40px;padding-top:40px;position:relative}.markdown-body.next-editor{overflow-x:hidden!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{border-right:3px solid #6ce26c!important;box-sizing:initial;color:#afafaf!important;cursor:default;display:inline-block;min-width:20px;padding:0 8px 0 0;position:relative;text-align:right;z-index:4}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-bottom:none;border-left:none;border-top:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-collapse:inherit!important;border-spacing:0}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{margin-bottom:unset;overflow:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p:last-child{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{background-color:inherit;border-radius:0;overflow:visible;text-align:center;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{height:100%;max-width:100%}.markdown-body pre>code.wrap{word-wrap:break-word;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap}.markdown-body .alert>p:last-child,.markdown-body .alert>ul:last-child{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{background-color:#000;background-position:50%;background-repeat:no-repeat;background-size:contain;cursor:pointer;display:table;overflow:hidden;text-align:center}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{object-fit:contain;width:100%;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{height:100%;left:0;position:absolute;top:0;width:100%}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{color:#fff;height:auto;left:50%;opacity:.3;position:absolute;top:50%;transform:translate(-50%,-50%);transition:opacity .2s;width:auto;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.figma{display:table;padding-bottom:56.25%;position:relative;width:100%}.figma iframe{border:1px solid #eee;bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.markmap-container{height:300px}.markmap-container>svg{height:100%;width:100%}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{color:#777;margin:25px auto -25px;max-width:760px;position:relative;z-index:2}.toc .invisable-node{list-style-type:none}.ui-toc{bottom:20px;position:fixed;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{border-bottom-left-radius:0;border-top-left-radius:0;height:40px;padding:10px 4px}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{color:#fff;opacity:1;transition:opacity .2s}.ui-toc-label:focus{background-color:#ccc;color:#000;opacity:.3}.ui-toc-label:hover{background-color:#ccc;opacity:1;transition:opacity .2s}.ui-toc-dropdown{margin-bottom:20px;margin-top:20px;max-height:70vh;max-width:45vw;overflow:auto;padding-left:10px;padding-right:10px;text-align:inherit;width:25vw}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{letter-spacing:.0029em;padding-right:0}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{color:#767676;display:block;font-size:13px;font-weight:500;padding:4px 20px}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{background-color:initial;border-left:1px solid #000;color:#000;padding-left:19px;text-decoration:none}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{border-left:none;border-right:1px solid #000;padding-right:19px}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{background-color:initial;border-left:2px solid #000;color:#000;font-weight:700;padding-left:18px}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{border-left:none;border-right:2px solid #000;padding-right:18px}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{font-size:12px;font-weight:400;padding-bottom:1px;padding-left:30px;padding-top:1px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{font-size:12px;font-weight:400;padding-bottom:1px;padding-left:40px;padding-top:1px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{font-weight:500;padding-left:28px}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{font-weight:500;padding-left:38px}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{max-height:70vh;max-width:15vw;overflow:auto;position:fixed;top:0}.back-to-top,.expand-toggle,.go-to-bottom{color:#999;display:block;font-size:12px;font-weight:500;margin-left:10px;margin-top:10px;padding:4px 10px}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{background-position:50%;background-repeat:no-repeat;background-size:cover;border-radius:50%;display:block;height:20px;margin-bottom:2px;margin-right:5px;margin-top:2px;width:20px}.ui-user-icon.small{display:inline-block;height:18px;margin:0 0 .2em;vertical-align:middle;width:18px}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;padding-left:22px;text-decoration:none}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}.inline-spoiler-section{cursor:pointer}.inline-spoiler-section .spoiler-text{background-color:#333;border-radius:2px}.inline-spoiler-section .spoiler-text>*{opacity:0}.inline-spoiler-section .spoiler-img{filter:blur(10px)}.inline-spoiler-section.raw{background-color:#333;border-radius:2px}.inline-spoiler-section.raw>*{opacity:0}.inline-spoiler-section.unveil{cursor:auto}.inline-spoiler-section.unveil .spoiler-text{background-color:#3333331a}.inline-spoiler-section.unveil .spoiler-text>*{opacity:1}.inline-spoiler-section.unveil .spoiler-img{filter:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{color:#222;position:relative;z-index:1}.markdown-body.slides:before{background-color:currentColor;bottom:0;box-shadow:0 0 0 50vw;content:"";display:block;left:0;position:absolute;right:0;top:0;z-index:-1}.markdown-body.slides section[data-markdown]{background-color:#fff;margin-bottom:1.5em;position:relative;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{left:1em;max-height:100%;overflow:hidden;position:absolute;right:1em;top:50%;transform:translateY(-50%)}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{border:3px solid #777;content:"";height:1.5em;position:absolute;right:1em;top:-1.5em}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}svg{text-shadow:none}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="目次" data-id="目次"><a class="anchor hidden-xs" href="#目次" title="目次"><span class="octicon octicon-link"></span></a><span>目次</span></h1><p><span class="toc"><ul>
+<li><a href="#目次" title="目次">目次</a></li>
+<li><a href="#1-概要" title="1. 概要">1. 概要</a><ul>
+<li><a href="#対応OS" title="対応OS">対応OS</a></li>
+<li><a href="#対応プロトコル" title="対応プロトコル">対応プロトコル</a></li>
+<li><a href="#対応Dynamixelモデル" title="対応Dynamixelモデル">対応Dynamixelモデル</a></li>
+</ul>
+</li>
+<li><a href="#2-インストール" title="2. インストール">2. インストール</a></li>
+<li><a href="#3-ライセンス購入とアクティベーション" title="3. ライセンス購入とアクティベーション">3. ライセンス購入とアクティベーション</a></li>
+<li><a href="#4-クイックスタート" title="4. クイックスタート">4. クイックスタート</a><ul>
+<li><a href="#新規シーンの作成" title="新規シーンの作成">新規シーンの作成</a></li>
+<li><a href="#Cスクリプトのコーディング" title="C#スクリプトのコーディング">C#スクリプトのコーディング</a></li>
+<li><a href="#実行" title="実行">実行</a></li>
+</ul>
+</li>
+<li><a href="#5-Script-Reference" title="5. Script Reference">5. Script Reference</a><ul>
+<li><a href="#DynamixelForUnity" title="DynamixelForUnity">DynamixelForUnity</a><ul>
+<li><a href="#定数" title="定数">定数</a></li>
+<li><a href="#変数" title="変数">変数</a></li>
+<li><a href="#プロパティ" title="プロパティ">プロパティ</a></li>
+<li><a href="#Verificate" title="Verificate">Verificate</a></li>
+<li><a href="#ConnectDynamixel" title="ConnectDynamixel">ConnectDynamixel</a></li>
+<li><a href="#ScanInBaudRate" title="ScanInBaudRate">ScanInBaudRate</a></li>
+<li><a href="#ScanInBaudRateAsync" title="ScanInBaudRateAsync">ScanInBaudRateAsync</a></li>
+<li><a href="#Ping" title="Ping">Ping</a></li>
+<li><a href="#PingGetModelNumber" title="PingGetModelNumber">PingGetModelNumber</a></li>
+<li><a href="#GetAllModelNumber" title="GetAllModelNumber">GetAllModelNumber</a></li>
+<li><a href="#SetControlTable" title="SetControlTable">SetControlTable</a></li>
+<li><a href="#SetUp" title="SetUp">SetUp</a></li>
+<li><a href="#SetUpAsync" title="SetUpAsync">SetUpAsync</a></li>
+<li><a href="#SetIDsForUse" title="SetIDsForUse">SetIDsForUse</a></li>
+<li><a href="#DisconnectDynamixel" title="DisconnectDynamixel">DisconnectDynamixel</a></li>
+<li><a href="#CloseAndReopenPort" title="CloseAndReopenPort">CloseAndReopenPort</a></li>
+<li><a href="#RebootDynamixel" title="RebootDynamixel">RebootDynamixel</a></li>
+<li><a href="#FactoryResetDynamixel" title="FactoryResetDynamixel">FactoryResetDynamixel</a></li>
+<li><a href="#SetBaudRate" title="SetBaudRate">SetBaudRate</a></li>
+<li><a href="#SetData" title="SetData">SetData</a></li>
+<li><a href="#SetSignedData" title="SetSignedData">SetSignedData</a></li>
+<li><a href="#GetData" title="GetData">GetData</a></li>
+<li><a href="#GetSignedData" title="GetSignedData">GetSignedData</a></li>
+<li><a href="#SyncSetDataGroup" title="SyncSetDataGroup">SyncSetDataGroup</a></li>
+<li><a href="#SyncSetDataGroupMultiModels" title="SyncSetDataGroupMultiModels">SyncSetDataGroupMultiModels</a></li>
+<li><a href="#SyncSetSignedDataGroup" title="SyncSetSignedDataGroup">SyncSetSignedDataGroup</a></li>
+<li><a href="#SyncSetSignedDataGroupMultiModels" title="SyncSetSignedDataGroupMultiModels">SyncSetSignedDataGroupMultiModels</a></li>
+<li><a href="#SyncGetDataGroup" title="SyncGetDataGroup">SyncGetDataGroup</a></li>
+<li><a href="#SyncGetDataGroupMultiModels" title="SyncGetDataGroupMultiModels">SyncGetDataGroupMultiModels</a></li>
+<li><a href="#SyncGetSignedDataGroup" title="SyncGetSignedDataGroup">SyncGetSignedDataGroup</a></li>
+<li><a href="#SyncGetSignedDataGroupMultiModels" title="SyncGetSignedDataGroupMultiModels">SyncGetSignedDataGroupMultiModels</a></li>
+<li><a href="#BulkSetDataGroup" title="BulkSetDataGroup">BulkSetDataGroup</a></li>
+<li><a href="#BulkGetDataGroup" title="BulkGetDataGroup">BulkGetDataGroup</a></li>
+</ul>
+</li>
+<li><a href="#コントロールテーブルの使用方法" title="コントロールテーブルの使用方法">コントロールテーブルの使用方法</a></li>
+<li><a href="#BulkWritePacketの使用方法" title="BulkWritePacketの使用方法">BulkWritePacketの使用方法</a><ul>
+<li><a href="#プロパティ1" title="プロパティ">プロパティ</a></li>
+<li><a href="#AddParam" title="AddParam">AddParam</a></li>
+<li><a href="#AddParamSigned" title="AddParamSigned">AddParamSigned</a></li>
+<li><a href="#Send" title="Send">Send</a></li>
+<li><a href="#ResetStatus" title="ResetStatus">ResetStatus</a></li>
+</ul>
+</li>
+<li><a href="#BulkReadPacketの使用方法" title="BulkReadPacketの使用方法">BulkReadPacketの使用方法</a><ul>
+<li><a href="#プロパティ2" title="プロパティ">プロパティ</a></li>
+<li><a href="#AddParam1" title="AddParam">AddParam</a></li>
+<li><a href="#Send1" title="Send">Send</a></li>
+<li><a href="#GetData1" title="GetData">GetData</a></li>
+<li><a href="#GetSignedData1" title="GetSignedData">GetSignedData</a></li>
+<li><a href="#ResetStatus1" title="ResetStatus">ResetStatus</a></li>
+</ul>
+</li>
+<li><a href="#ParamInfo" title="ParamInfo">ParamInfo</a><ul>
+<li><a href="#変数1" title="変数">変数</a></li>
+</ul>
+</li>
+<li><a href="#ControlTables" title="ControlTables">ControlTables</a><ul>
+<li><a href="#プロパティ3" title="プロパティ">プロパティ</a></li>
+<li><a href="#GetAddrssInfo" title="GetAddrssInfo">GetAddrssInfo</a></li>
+<li><a href="#GetControlTable" title="GetControlTable">GetControlTable</a></li>
+<li><a href="#Contains" title="Contains">Contains</a></li>
+<li><a href="#GetModelsContains" title="GetModelsContains">GetModelsContains</a></li>
+</ul>
+</li>
+<li><a href="#ControlTableAddressInfo" title="ControlTableAddressInfo">ControlTableAddressInfo</a><ul>
+<li><a href="#変数2" title="変数">変数</a></li>
+</ul>
+</li>
+<li><a href="#IControlTableUser" title="IControlTableUser">IControlTableUser</a><ul>
+<li><a href="#SetControlTables" title="SetControlTables">SetControlTables</a></li>
+</ul>
+</li>
+<li><a href="#Core" title="Core">Core</a></li>
+</ul>
+</li>
+<li><a href="#6Example-Sceneの解説" title="6.Example Sceneの解説">6.Example Sceneの解説</a><ul>
+<li><a href="#画面の解説" title="画面の解説">画面の解説</a></li>
+<li><a href="#実装の解説" title="実装の解説">実装の解説</a><ul>
+<li><a href="#D4UExampleController" title="D4UExampleController">D4UExampleController</a></li>
+<li><a href="#D4UExampleUI" title="D4UExampleUI">D4UExampleUI</a></li>
+<li><a href="#D4UExampleUIElement" title="D4UExampleUIElement">D4UExampleUIElement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</span></p><h1 id="1-概要" data-id="1-概要"><a class="anchor hidden-xs" href="#1-概要" title="1-概要"><span class="octicon octicon-link"></span></a><span>1. 概要</span></h1><p><span>「DynamixelforUnity（D4U）」は、Unity3D内で簡単にDynamixelサーボモーター制御を実装するためのアセットです。D4Uは、様々なDynamixelサーボモーターと効率的かつ容易に接続し、制御し、データを読み取るための多くのメソッドを提供します。</span></p><p><span>具体的には、D4Uは以下の機能セットに焦点を当てています：</span></p><ul>
+<li><span>サーボモーターの制御テーブルを自動的に読み込む</span></li>
+<li><span>複数のサーボモーターモデルを同時に制御できる</span></li>
+<li><span>シンプルな宣言型のコードでDynamixelサーボモーターを制御できる</span></li>
+<li><span>低レベルのサーボモーターを抽象化し、サーボモーター制御を簡素化するための多くのクラスを提供する</span></li>
+<li><span>複数のモデルの一括制御や単位変換などの高度な機能を有効にする</span></li>
+<li><span>Unity3D内での低レベルの通信とサーボモーター制御を提供する（必要な場合）</span></li>
+</ul><p><span>が可能になります。</span></p><p><span>そのほかにも複数モデルの一括制御、単位換算など便利な関数が含まれて、ユーザーはUnity3D内から完全にロボット制御コードの記述に集中でき、C#で簡単に統合できるシンプルなコードを使用して、さまざまなアプリケーション、ゲーム、シミュレーション、または他の経験やユースケースに統合できます。これらはUnity3Dを活用します。</span></p><h2 id="対応OS" data-id="対応OS"><a class="anchor hidden-xs" href="#対応OS" title="対応OS"><span class="octicon octicon-link"></span></a><span>対応OS</span></h2><ul>
+<li><span>Windows</span></li>
+</ul><h2 id="対応プロトコル" data-id="対応プロトコル"><a class="anchor hidden-xs" href="#対応プロトコル" title="対応プロトコル"><span class="octicon octicon-link"></span></a><span>対応プロトコル</span></h2><ul>
+<li><a href="https://emanual.robotis.com/docs/en/dxl/protocol2/" target="_blank" rel="noopener"><span>DYNAMIXEL Protocol 2.0</span></a></li>
+</ul><h2 id="対応Dynamixelモデル" data-id="対応Dynamixelモデル"><a class="anchor hidden-xs" href="#対応Dynamixelモデル" title="対応Dynamixelモデル"><span class="octicon octicon-link"></span></a><span>対応Dynamixelモデル</span></h2><p><span>DYNAMIXEL Protocol 2.0に対応するモデル。</span></p><ul>
+<li><span>MX-28</span></li>
+<li><span>MX-64</span></li>
+<li><span>MX-106</span></li>
+<li><span>X Series (2X Series included)</span></li>
+<li><span>PRO Series</span></li>
+<li><span>P Series</span></li>
+</ul><h1 id="2-インストール" data-id="2-インストール"><a class="anchor hidden-xs" href="#2-インストール" title="2-インストール"><span class="octicon octicon-link"></span></a><span>2. インストール</span></h1><p><span>利用したいUnityプロジェクトが開かれている状態で、DynamixelForUnity.unitypackageをダブルクリック、もしくは利用したいUnityプロジェクトのProjectウィンドウにドラッグアンドドロップします。</span></p><p><span>すべて選択された状態でImportしてください。</span></p><h1 id="3-ライセンス購入とアクティベーション" data-id="3-ライセンス購入とアクティベーション"><a class="anchor hidden-xs" href="#3-ライセンス購入とアクティベーション" title="3-ライセンス購入とアクティベーション"><span class="octicon octicon-link"></span></a><span>3. ライセンス購入とアクティベーション</span></h1><p><span>完全な体験を得るためには、</span><a href="https://hatsumuv.myshopify.com/" target="_blank" rel="noopener"><span>HatsuMuv</span></a><span> からライセンスを購入する必要があります。ライセンスなしでは、Unityの実行ごとに10回の操作しか行えません。</span></p><p><span>購入後、以下のフォームへのリンクが提供されます。フォームでは、デバイスIDなどの登録情報を提供する必要があります。デバイスIDは、ライセンスを使用するマシンにD4Uを関連付けるために使用される固有のID番号です。</span><br>
+<img src="https://hackmd.io/_uploads/B19vxZZn3.jpg" alt="License Registration Form" loading="lazy"></p><p><span>デバイスIDを生成し、上記のフォームに挿入するには、ツールバーでGet DeviceID for Registrationをクリックします。これにより、デバイスIDが自動的にクリップボードにコピーされ、コンソールウィンドウに表示されます。以下のスクリーンショットに示されている指示に従ってください：</span></p><p><img src="https://hackmd.io/_uploads/r1W30l-2n.png" alt="Getting Device ID" loading="lazy"></p><p><span>D4Uを購入した後、SN（シリアルナンバー）がメールで送られてきます。D4U内でSNを使用するには、次のようにD4Uの検証メソッドにメールとSNを挿入するか、Unity3DのUI内の「Dynamixel For Unity Component」に挿入してください：</span></p><p><img src="https://hackmd.io/_uploads/Skw6tax3n.jpg" alt="" loading="lazy"></p><p><span>アクティベーションを確認するには、シーンを実行し、コンソールでアクティベーションが正しく行われたかどうかを確認できます。</span></p><h1 id="4-クイックスタート" data-id="4-クイックスタート"><a class="anchor hidden-xs" href="#4-クイックスタート" title="4-クイックスタート"><span class="octicon octicon-link"></span></a><span>4. クイックスタート</span></h1><p><span>ここでは、2つのDynamixelサーボモーターの位置の取得および設定をするデモを紹介します。</span></p><h2 id="新規シーンの作成" data-id="新規シーンの作成"><a class="anchor hidden-xs" href="#新規シーンの作成" title="新規シーンの作成"><span class="octicon octicon-link"></span></a><span>新規シーンの作成</span></h2><ol>
+<li><span>新しいシーンを作成し、HatsuMuv/DynamixelForUnity/Prefabs/DynamixelForUnityをヒエラルキーウィンドウにドラッグアンドドロップします。</span></li>
+</ol><p><img src="https://hackmd.io/_uploads/SyBq4DX3n.png" alt="" loading="lazy"></p><ol start="2">
+<li><span>ヒエラルキーメニューで</span><strong><span>DynamixelForUnity</span></strong><span>ゲームオブジェクトを選択します。</span></li>
+</ol><p><img src="https://hackmd.io/_uploads/Skw6tax3n.jpg" alt="" loading="lazy"></p><ol start="3">
+<li>
+<p><span>インスペクターウィンドウで、</span><strong><span>DynamixelForUnity</span></strong><span>コンポーネントに、</span><strong><span>メールアドレス</span></strong><span>と</span><strong><span>SNコード</span></strong><span>を、</span><strong><span>デバイス名</span></strong><span>フィールドには、Dynamixelサーボモーターに接続されたUSBシリアルポートを入力します（ポート名は</span><strong><span>デバイスマネージャー</span></strong><span>から取得できます 例：「COM3」）。</span></p>
+</li>
+<li>
+<p><span>（オプション）操作するサーボモーターのボーレートを知っている場合は、事前にDynamixelForUnityのインスペクターでボーレートを設定します。分からない場合は空白のままにします。（後に記述するC#スクリプトのDynamixelForUnityのSetUpメソッドにてスキャンされますが、これには時間がかかることがあります）。</span></p>
+</li>
+<li>
+<p><span>「コンポーネントの追加」ボタンをクリックし、スクリプト名を任意のもの（今回は「Demo」）と入力します。それから「新しいスクリプト」をクリックします。</span></p>
+</li>
+</ol><p><img src="https://hackmd.io/_uploads/rkolrDX32.png" alt="" loading="lazy"></p><ol start="6">
+<li><span>グレーの「Demo」スクリプトをダブルクリックします。しばらくするとVisualStudioが起動されます。</span></li>
+</ol><p><img src="https://hackmd.io/_uploads/Bk0wIdNh2.png" alt="" loading="lazy"></p><h2 id="Cスクリプトのコーディング" data-id="Cスクリプトのコーディング"><a class="anchor hidden-xs" href="#Cスクリプトのコーディング" title="Cスクリプトのコーディング"><span class="octicon octicon-link"></span></a><span>C#スクリプトのコーディング</span></h2><p><span>Visual Studioが起動しtら、以下のように書きます。このコードは、2つのサーボモーターの現在位置をDebug.Logに出力し、その後、それぞれのGoalPositionを1024に設定します。</span></p><pre><code class="wrap csharp hljs"><span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">HatsuMuv<span class="token punctuation">.</span>DynamixelForUnity<span class="token punctuation">.</span>x64</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token class-name">DynamixelForUnity</span> d4u<span class="token punctuation">;</span>
+    
+    <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        d4u <span class="token operator">=</span> <span class="token generic-method"><span class="token function">GetComponent</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>DynamixelForUnity<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        d4u<span class="token punctuation">.</span><span class="token function">ConnectDynamixel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        d4u<span class="token punctuation">.</span><span class="token function">SetUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       
+        <span class="token comment">// Set operating mode to Position Control Mode</span>
+        d4u<span class="token punctuation">.</span><span class="token function">SyncSetDataGroupMultiModels</span><span class="token punctuation">(</span><span class="token string">"OperatingMode"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name"><span class="token keyword">uint</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> <span class="token punctuation">{</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token comment">// Torque enable</span>
+        d4u<span class="token punctuation">.</span><span class="token function">SyncSetDataGroupMultiModels</span><span class="token punctuation">(</span><span class="token string">"TorqueEnable"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name"><span class="token keyword">uint</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token comment">// Get and print present position</span>
+        <span class="token class-name"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> presentPosition <span class="token operator">=</span> d4u<span class="token punctuation">.</span><span class="token function">SyncGetSignedDataGroupMultiModels</span><span class="token punctuation">(</span><span class="token string">"PresentPosition"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">"PresentPosition: "</span> <span class="token operator">+</span> <span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">Join</span><span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">,</span> presentPosition<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        <span class="token comment">// Set goal position</span>
+        d4u<span class="token punctuation">.</span><span class="token function">SyncSetDataGroupMultiModels</span><span class="token punctuation">(</span><span class="token string">"GoalPosition"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name"><span class="token keyword">uint</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> <span class="token punctuation">{</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token number">1024</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+    <span class="token punctuation">}</span>
+    
+    <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">OnApplicationQuit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Torque disable</span>
+        <span class="token class-name"><span class="token keyword">uint</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> torqueEnableCommand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name"><span class="token keyword">uint</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> <span class="token punctuation">{</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        d4u<span class="token punctuation">.</span><span class="token function">SyncSetDataGroupMultiModels</span><span class="token punctuation">(</span><span class="token string">"TorqueEnable"</span><span class="token punctuation">,</span> torqueEnableCommand<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre><h2 id="実行" data-id="実行"><a class="anchor hidden-xs" href="#実行" title="実行"><span class="octicon octicon-link"></span></a><span>実行</span></h2><p><span>Unity画面に戻り、再生ボタンをクリックしてください。</span></p><p><span>サーボモーターの位置はコンソールに表示されます。</span><br>
+<img src="https://hackmd.io/_uploads/B1eOQU_423.png" alt="" loading="lazy"></p><h1 id="5-Script-Reference" data-id="5-Script-Reference"><a class="anchor hidden-xs" href="#5-Script-Reference" title="5-Script-Reference"><span class="octicon octicon-link"></span></a><span>5. Script Reference</span></h1><p><span>名前空間は</span></p><pre><code>// 対応するシステム(OS)から以下の名前空間の中から一つを選択してください
+HatsuMuv.DynamixelForUnity.x64
+HatsuMuv.DynamixelForUnity.x86
+</code></pre><p><span>から、お客様ののシステムに対応環境から選んでください。</span></p><h2 id="DynamixelForUnity" data-id="DynamixelForUnity"><a class="anchor hidden-xs" href="#DynamixelForUnity" title="DynamixelForUnity"><span class="octicon octicon-link"></span></a><span>DynamixelForUnity</span></h2><p><span>DynamixelForUnityは宣言的なコードでDynamixelモーターを制御できるよう提供されるクラスです。一つのポートにつき一つのコンポーネントで管理します。IControlTableUserを実装します。</span></p><p><span>使用の流れ</span></p><ol>
+<li><span>ConnectDynamixelでポートを開く。</span></li>
+<li><span>(オプション)SetUpもしくはSetIDsForUseで使用するモーターIDとモデル番号を保持する。この手順を踏むことで、データフィールド名だけで命令を送信することや、すべてのモーターへの命令を送信する際に簡潔に書くことができます。</span></li>
+<li><span>SetDataなどのメソッドでモーターを制御。OperatingModeなどのEEPROM領域のデータはトルクがOFF状態でないと書き込めないことに注意してください。</span></li>
+<li><span>終了時はOnApplicationQuitもしくはOnDisable内でトルク無効化などの終了処理を行って下さい。DynamixelForUnityはOnDestroyが呼ばれたタイミングで接続されていればDisconnectDynamixelします。</span></li>
+</ol><h3 id="定数" data-id="定数"><a class="anchor hidden-xs" href="#定数" title="定数"><span class="octicon octicon-link"></span></a><span>定数</span></h3><table>
+<thead>
+<tr>
+<th><span>定数</span></th>
+<th><span>値</span></th>
+<th><span>説明</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>PROTOCOL_VERSION</span></td>
+<td><span>2</span></td>
+<td><span>DynamixelForUnityはプロトコルバージョン2.0にのみ対応。</span></td>
+</tr>
+</tbody>
+</table><h3 id="変数" data-id="変数"><a class="anchor hidden-xs" href="#変数" title="変数"><span class="octicon octicon-link"></span></a><span>変数</span></h3><table>
+<thead>
+<tr>
+<th><span>変数名</span></th>
+<th><span>説明</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>showMessage</span></td>
+<td><span>これをtrueにするとDynamixelForUnityのすべての実行ログが</span><br><span>Debug.Logに出力される。エラーや警告は影響されない。</span></td>
+</tr>
+</tbody>
+</table><h3 id="プロパティ" data-id="プロパティ"><a class="anchor hidden-xs" href="#プロパティ" title="プロパティ"><span class="octicon octicon-link"></span></a><span>プロパティ</span></h3><table>
+<thead>
+<tr>
+<th><span>プロパティ名</span></th>
+<th><span>説明</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>ControlTables</span></td>
+<td><span>複数のモデルのcontrolTableを格納したオブジェクト。データフィールド名から命令を送信する関数はこれを参照する。</span></td>
+</tr>
+<tr>
+<td><span>BaudRate</span></td>
+<td><span>現在のボーレートを返す。読み取り専用。</span></td>
+</tr>
+<tr>
+<td><span>IDsForUse</span></td>
+<td><span>DynamixelForUnityに保持されているID配列。SetUpメソッドで設定される。読み取り専用。</span></td>
+</tr>
+<tr>
+<td><span>ModelNumbers</span></td>
+<td><span>Dictionary&lt;byte, int&gt;型。保持されているIDのモーターのモデル番号を表す。SetIDsForUseメソッド、SetUpメソッドで設定される。読み取り専用。</span></td>
+</tr>
+<tr>
+<td><span>ConnectStatus</span></td>
+<td><span>モーターとの接続の有無を表す真偽値。読み取り専用。</span></td>
+</tr>
+<tr>
+<td><span>Varification</span></td>
+<td><span>ライセンスが認証されているかを表す真偽値。読み取り専用。</span></td>
+</tr>
+</tbody>
+</table><h3 id="Verificate" data-id="Verificate"><a class="anchor hidden-xs" href="#Verificate" title="Verificate"><span class="octicon octicon-link"></span></a><span>Verificate</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool Verificate(HatsuVerif verif)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>HatsuVerif verif</dt>
+      <dd>検証オブジェクト。ライセンスファイルのパスと検証情報から作成する。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>ライセンスの有効性。</span></p>
+</li>
+<li>
+<p><span>説明</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>使用前にこのメソッドを実行し、ライセンスを検証してください。</span></p>
+</div><h3 id="ConnectDynamixel" data-id="ConnectDynamixel"><a class="anchor hidden-xs" href="#ConnectDynamixel" title="ConnectDynamixel"><span class="octicon octicon-link"></span></a><span>ConnectDynamixel</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool ConnectDynamixel()</code><br>
+<code>public bool ConnectDynamixel(string deviceName)</code><br>
+<code>public bool ConnectDynamixel(BaudRate baudRate)</code><br>
+<code>public bool ConnectDynamixel(string deviceName, BaudRate baudRate)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>string deviceName</dt>
+      <dd>接続するポート名。ex.)"COM3" </dd>
+      <dt>BaudRate baudRate</dt>
+      <dd>接続するボーレート。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>接続に成功すればtrueを、そうでなければfalseを返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたボーレートでポートを開き、Dynamixelモーターと接続する。ポートまたはボーレートの指定がなければ、インスペクタで指定された値を用いる。</span></p>
+</li>
+</ul><h3 id="ScanInBaudRate" data-id="ScanInBaudRate"><a class="anchor hidden-xs" href="#ScanInBaudRate" title="ScanInBaudRate"><span class="octicon octicon-link"></span></a><span>ScanInBaudRate</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public byte[] ScanInBaudRate(BaudRate baudRate, byte[] idsForScan = null)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>BaudRate baudRate</dt>
+      <dd>スキャンに用いるボーレート。</dd>
+      <dt>byte[] idsForScan</dt>
+      <dd>スキャンを行う対象のID。特定のIDのモーターだけ探す際に利用する。nullが指定されるとすべてのIDをスキャンする。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>利用可能なモーターIDのbyte配列。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたボーレートでPingを打ち、Dynamixelモーターをスキャンする。SetBaudRateメソッドを用いて指定されたボーレートに変更する。</span></p>
+</li>
+</ul><hr><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public byte[] ScanInBaudRate(BaudRate baudRate, byte minIDsForScan, byte maxIDsForScan)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>byte minIDsForScan</dt>
+      <dd>スキャンを行う対象のIDを範囲の下限。(範囲に含む)</dd>
+      <dt>byte maxIDsForScan</dt>
+      <dd>スキャンを行う対象のIDを範囲の上限。(範囲に含む)</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>利用可能なモーターIDのbyte配列。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたボーレートでPingを打ち、Dynamixelモーターをスキャンする。SetBaudRateメソッドを用いて指定されたボーレートに変更する。スキャン対象を範囲で指定することができる。</span></p>
+</li>
+</ul><h3 id="ScanInBaudRateAsync" data-id="ScanInBaudRateAsync"><a class="anchor hidden-xs" href="#ScanInBaudRateAsync" title="ScanInBaudRateAsync"><span class="octicon octicon-link"></span></a><span>ScanInBaudRateAsync</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public async Task&lt;byte[]&gt; ScanInBaudRateAsync(BaudRate baudRate, byte[] idsForScan = null, CancellationToken cancellationToken = default(CancellationToken))</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>BaudRate baudRate</dt>
+      <dd>スキャンに用いるボーレート。</dd>
+      <dt>byte[] idsForScan</dt>
+      <dd>スキャンを行う対象のID。特定のIDのモーターだけ探す際に利用する。nullが指定されるとすべてのIDをスキャンする。</dd>
+      <dt>CancellationToken cancellationToken</dt>
+      <dd>処理をキャンセルするために使用。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>利用可能なモーターIDのbyte配列。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>非同期的に指定されたボーレートでPingを打ち、Dynamixelモーターをスキャンする。SetBaudRateメソッドを用いて指定されたボーレートに変更する。</span></p>
+</li>
+</ul><hr><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public async Task&lt;byte[]&gt; ScanInBaudRateAsync(BaudRate baudRate, byte minIDsForScan, byte maxIDsForScan, CancellationToken cancellationToken = default(CancellationToken))</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>byte minIDsForScan</dt>
+      <dd>スキャンを行う対象のIDを範囲の下限。(範囲に含む)</dd>
+      <dt>byte maxIDsForScan</dt>
+      <dd>スキャンを行う対象のIDを範囲の上限。(範囲に含む)</dd>
+      <dt>CancellationToken cancellationToken</dt>
+      <dd>処理をキャンセルするために使用。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>利用可能なモーターIDのbyte配列。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>非同期的に指定されたボーレートでPingを打ち、Dynamixelモーターをスキャンする。SetBaudRateメソッドを用いて指定されたボーレートに変更する。スキャン対象を範囲で指定することができる。</span></p>
+</li>
+</ul><h3 id="Ping" data-id="Ping"><a class="anchor hidden-xs" href="#Ping" title="Ping"><span class="octicon octicon-link"></span></a><span>Ping</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool Ping(byte ID, bool hideErrorMsg = true)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>byte ID</dt>
+      <dd>Pingを打つ対象のID。</dd>
+      <dt>bool hideErrorMsg</dt>
+      <dd>接続失敗時のエラー出力を無効にする。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>接続されているか。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたIDにPingを打ち、接続されているか確認する。</span></p>
+</li>
+</ul><h3 id="PingGetModelNumber" data-id="PingGetModelNumber"><a class="anchor hidden-xs" href="#PingGetModelNumber" title="PingGetModelNumber"><span class="octicon octicon-link"></span></a><span>PingGetModelNumber</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public int PingGetModelNumber(byte ID)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>byte ID</dt>
+      <dd>Pingを打つ対象のID。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>モデル番号。通信失敗時には-1を返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたIDにPingを打ち、モデル番号を取得する。</span></p>
+</li>
+</ul><h3 id="GetAllModelNumber" data-id="GetAllModelNumber"><a class="anchor hidden-xs" href="#GetAllModelNumber" title="GetAllModelNumber"><span class="octicon octicon-link"></span></a><span>GetAllModelNumber</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public int[] GetAllModelNumber(byte[] ids = null)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>byte[] ids</dt>
+      <dd>モデル番号を得る対象のID。nullが指定されるとDynamixelForUnityに保持されているIDが対象になる。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>モデル番号の配列。通信失敗した項目には-1が入れられる。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定された複数のIDにPingを打ち、モデル番号の配列を返す。</span></p>
+</li>
+</ul><h3 id="SetControlTable" data-id="SetControlTable"><a class="anchor hidden-xs" href="#SetControlTable" title="SetControlTable"><span class="octicon octicon-link"></span></a><span>SetControlTable</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public void SetControlTable(ControlTables controlTables)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ControlTables controlTables</dt>
+      <dd>モデル番号を得る対象のID。nullが指定されるとDynamixelForUnityに保持されているIDが対象になる。</dd>
+  </dl>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>IControlTableUserの実装。コントロールテーブルをセットする。</span></p>
+</li>
+</ul><h3 id="SetUp" data-id="SetUp"><a class="anchor hidden-xs" href="#SetUp" title="SetUp"><span class="octicon octicon-link"></span></a><span>SetUp</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public byte[] SetUp(BaudRate? baudRate = null, byte[] idsForScan = null, bool scanAllBaudRateIfNotFound = true) </code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+  <dt>BaudRate? baudRate</dt>
+  <dd>最初にスキャンするボーレート。nullが指定されるとInspectorなどであらかじめ設定されたBaudRateが使用される。</dd>
+      <dt>byte[] idsForScan</dt>
+      <dd>セットアップ対象のID。nullが指定されるとすべてのIDを対象にスキャンを実行する。</dd>
+  <dt>bool scanAllBaudRateIfNotFound</dt>
+      <dd>最初にスキャンしたボーレートでDynamixelモーターが見つからなければすべてのボーレートでスキャンする。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>利用可能なモーターIDのbyte配列。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>ScanInBaudRateメソッドでdynamixelモーターをスキャンし、SetIDsForUseメソッドでスキャンしたIDを使用するモーターとして保持する。</span></p>
+</li>
+</ul><h3 id="SetUpAsync" data-id="SetUpAsync"><a class="anchor hidden-xs" href="#SetUpAsync" title="SetUpAsync"><span class="octicon octicon-link"></span></a><span>SetUpAsync</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public async Task&lt;byte[]&gt; SetUpAsync(BaudRate? baudRate = null, byte[] idsForScan = null, bool scanAllBaudRateIfNotFound = true, CancellationToken cancellationToken = default(CancellationToken)) </code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+  <dt>BaudRate? baudRate</dt>
+  <dd>最初にスキャンするボーレート。nullが指定されるとInspectorなどであらかじめ設定されたBaudRateが使用される。</dd>
+      <dt>byte[] idsForScan</dt>
+      <dd>セットアップ対象のID。nullが指定されるとすべてのIDを対象にスキャンを実行する。</dd>
+  <dt>bool scanAllBaudRateIfNotFound</dt>
+      <dd>最初にスキャンしたボーレートでDynamixelモーターが見つからなければすべてのボーレートでスキャンする。</dd>
+      <dt>CancellationToken cancellationToken</dt>
+      <dd>処理をキャンセルするために使用。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>利用可能なモーターIDのbyte配列。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>非同期的にScanInBaudRateAsyncメソッドでdynamixelモーターをスキャンし、SetIDsForUseメソッドでスキャンしたIDを使用するモーターとして保持する。</span></p>
+</li>
+</ul><h3 id="SetIDsForUse" data-id="SetIDsForUse"><a class="anchor hidden-xs" href="#SetIDsForUse" title="SetIDsForUse"><span class="octicon octicon-link"></span></a><span>SetIDsForUse</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public void SetIDsForUse(byte[] idsForUse)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>byte[] idsForUse</dt>
+      <dd>対象のID。</dd>
+  </dl>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>IDを利用対象として保持し、モデル番号と関連付ける。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>モーターIDとモデル番号をDynamixelForUnityに保持させることで、データフィールド名だけで命令を送信することや、すべてのモーターへの命令を送信する際に簡潔に書くことができます。</span></p>
+</div><h3 id="DisconnectDynamixel" data-id="DisconnectDynamixel"><a class="anchor hidden-xs" href="#DisconnectDynamixel" title="DisconnectDynamixel"><span class="octicon octicon-link"></span></a><span>DisconnectDynamixel</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public void DisconnectDynamixel()</code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>ポートを閉じる。</span></p>
+</li>
+</ul><h3 id="CloseAndReopenPort" data-id="CloseAndReopenPort"><a class="anchor hidden-xs" href="#CloseAndReopenPort" title="CloseAndReopenPort"><span class="octicon octicon-link"></span></a><span>CloseAndReopenPort</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public void CloseAndReopenPort(bool withSetBaudRate = true) </code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>bool withSetBaudRate</dt>
+      <dd>直前のボーレートに再び設定する。</dd>
+  </dl>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>ポートを閉じ、開き直す。</span></p>
+</li>
+</ul><h3 id="RebootDynamixel" data-id="RebootDynamixel"><a class="anchor hidden-xs" href="#RebootDynamixel" title="RebootDynamixel"><span class="octicon octicon-link"></span></a><span>RebootDynamixel</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public void RebootDynamixel(byte[] ids = null)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>byte[] idsForScan = null</dt>
+      <dd>対象のID。nullが指定されるとDynamixelForUnityに保持されているIDが対象になる。</dd>
+  </dl>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>DynamixelモーターをRebootする。</span></p>
+</li>
+</ul><h3 id="FactoryResetDynamixel" data-id="FactoryResetDynamixel"><a class="anchor hidden-xs" href="#FactoryResetDynamixel" title="FactoryResetDynamixel"><span class="octicon octicon-link"></span></a><span>FactoryResetDynamixel</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public void FactoryResetDynamixel(DynamixelFactoryResetMode mode, byte[] ids = null)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>DynamixelFactoryResetMode mode</dt>
+      <dd>すべての値をリセットするか、ID 以外のすべての値をリセットするか、ID とボーレート以外のすべての値をリセットするかを選択する。</dd>
+      <dt>byte[] idsForScan</dt>
+      <dd>対象のID。nullが指定されるとDynamixelForUnityに保持されているIDが対象になる。</dd>
+  </dl>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>Dynamixelモーターを工場出荷時の状態にリセットする。</span></p>
+</li>
+</ul><h3 id="SetBaudRate" data-id="SetBaudRate"><a class="anchor hidden-xs" href="#SetBaudRate" title="SetBaudRate"><span class="octicon octicon-link"></span></a><span>SetBaudRate</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool SetBaudRate(BaudRate baudRate)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>BaudRate baudRate</dt>
+      <dd>対象のボーレート。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>成功すればtrueを、そうでなければfalseを返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>ポートのボーレートを設定する。</span></p>
+</li>
+</ul><h3 id="SetData" data-id="SetData"><a class="anchor hidden-xs" href="#SetData" title="SetData"><span class="octicon octicon-link"></span></a><span>SetData</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool SetData(ushort ADDR, ushort LEN, uint data, byte id)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ushort ADDR</dt>
+      <dd>書き込むデータフィールドのアドレス。モデルのControl Tableを参照。</dd>
+      <dt>ushort LEN</dt>
+      <dd>書き込むデータフィールドのサイズ。モデルのControl Tableを参照。</dd>
+      <dt>uint data</dt>
+      <dd>書き込むデータ。</dd>
+      <dt>byte id</dt>
+      <dd>対象のID。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>成功すればtrueを、そうでなければfalseを返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたIDのDynamixelモーターにデータを書き込む。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>データフィールドのアドレスと長さはの各Dynamitelモーターのe-ManualからContorol Tableを確認してください。</span></p>
+</div><hr><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool SetData(ControlTableAddressInfo addressInfo, uint data, byte id)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ControlTableAddressInfo addressInfo</dt>
+      <dd>Control Tableの各データフィールドのアドレス、長さ、アクセスを持つ構造体。</dd>
+      <dt>uint data</dt>
+      <dd>書き込むデータ。</dd>
+      <dt>byte id</dt>
+      <dd>対象のID。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>成功すればtrueを、そうでなければfalseを返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>SetData(ushort ADDR, ushort LEN, uint data, byte id)を使用して、指定されたIDのDynamixelモーターにデータを書き込む。データフィールドが読み取り専用であれば実行されない。</span></p>
+</li>
+</ul><hr><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool SetData(string dataName, uint data, byte id)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>string dataName</dt>
+      <dd>Control Tableのデータフィールド名</dd>
+      <dt>uint data</dt>
+      <dd>書き込むデータ。</dd>
+      <dt>byte id</dt>
+      <dd>対象のID。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>成功すればtrueを、そうでなければfalseを返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>SetData(ushort ADDR, ushort LEN, uint data, byte id)を使用して、指定されたIDのDynamixelモーターにデータを書き込む。データフィールドが読み取り専用であれば実行されない。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>SetUpメソッドもしくはSetIDsForUseメソッドによってIDとモデル番号が保持されていなければ使用できません。</span></p>
+</div><h3 id="SetSignedData" data-id="SetSignedData"><a class="anchor hidden-xs" href="#SetSignedData" title="SetSignedData"><span class="octicon octicon-link"></span></a><span>SetSignedData</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool SetSignedData(ushort ADDR, ushort LEN, uint data, byte id)</code><br>
+<code>public bool SetSignedData(ControlTableAddressInfo addressInfo, int data, byte id)</code><br>
+<code>public bool SetSignedData(string dataName, int data, byte id)</code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたIDのDynamixelモーターに符号付きデータを書き込む。SetDataの説明を参照してください。</span></p>
+</li>
+</ul><h3 id="GetData" data-id="GetData"><a class="anchor hidden-xs" href="#GetData" title="GetData"><span class="octicon octicon-link"></span></a><span>GetData</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public uint GetData(ushort ADDR, ushort LEN, byte id)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ushort ADDR</dt>
+      <dd>書き換えるデータフィールドのアドレス。モデルのControl Tableを参照。</dd>
+      <dt>ushort LEN</dt>
+      <dd>書き換えるデータフィールドのサイズ。モデルのControl Tableを参照。</dd>
+      <dt>byte id</dt>
+      <dd>対象のID。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>読み取ったデータ。エラーが発生した場合0を返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたIDのDynamixelモーターのデータを読み取る。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>データフィールドのアドレスと長さはの各Dynamitelモーターのe-ManualからContorol Tableを確認してください。</span></p>
+</div><hr><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public uint GetData(ControlTableAddressInfo addressInfo, byte id)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ControlTableAddressInfo addressInfo</dt>
+      <dd>Control Tableの各データフィールドのアドレス、長さ、アクセスを含む構造体。</dd>
+      <dt>byte id</dt>
+      <dd>対象のID。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>読み取ったデータ。エラーが発生した場合0を返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GetData(ushort ADDR, ushort LEN, byte id)を使用して、指定されたIDのDynamixelモーターのデータを読み取る。</span></p>
+</li>
+</ul><hr><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public uint GetData(string dataName, byte id)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>string dataName</dt>
+      <dd>Control Tableのデータフィールド名</dd>
+      <dt>byte id</dt>
+      <dd>対象のID。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>読み取ったデータ。エラーが発生した場合0を返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GetData(ushort ADDR, ushort LEN, byte id)を使用して、指定されたIDのDynamixelモーターのデータを読み取る。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>SetUpメソッドもしくはSetIDsForUseメソッドによってIDとモデル番号が保持されていなければ使用できません。</span></p>
+</div><h3 id="GetSignedData" data-id="GetSignedData"><a class="anchor hidden-xs" href="#GetSignedData" title="GetSignedData"><span class="octicon octicon-link"></span></a><span>GetSignedData</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public int GetSignedData(ushort ADDR, ushort LEN, byte id)</code><br>
+<code>public int GetSignedData(ControlTableAddressInfo addressInfo, byte id)</code><br>
+<code>public int GetSignedData(string dataName, byte id)</code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたIDのDynamixelモーターの符号付きデータを読み取る。GetDataの説明を参照してください。</span></p>
+</li>
+</ul><h3 id="SyncSetDataGroup" data-id="SyncSetDataGroup"><a class="anchor hidden-xs" href="#SyncSetDataGroup" title="SyncSetDataGroup"><span class="octicon octicon-link"></span></a><span>SyncSetDataGroup</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool SyncSetDataGroup(ushort ADDR, ushort LEN, uint[] data, byte[] ids = null)</code><br>
+<code>public bool SyncSetDataGroup(ControlTableAddressInfo addressInfo, uint[] data, byte[] ids = null)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ushort ADDR</dt>
+      <dd>書き換えるデータフィールドのアドレス。モデルのControl Tableを参照。</dd>
+      <dt>ushort LEN</dt>
+      <dd>書き換えるデータフィールドのサイズ。モデルのControl Tableを参照。</dd>
+      <dt>ControlTableAddressInfo addressInfo</dt>
+      <dd>Control Tableの各データフィールドのアドレス、長さ、アクセスを含む構造体。</dd>
+      <dt>uint[] data</dt>
+      <dd>書き込むデータ配列。</dd>
+      <dt>byte[] ids = null</dt>
+      <dd>対象のID。nullが指定されるとDynamixelForUnityに保持されているIDが対象になる。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>成功すればtrueを、そうでなければfalseを返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GroupSyncWrite用いて複数モーターに同時にデータを書き込む。</span></p>
+</li>
+</ul><h3 id="SyncSetDataGroupMultiModels" data-id="SyncSetDataGroupMultiModels"><a class="anchor hidden-xs" href="#SyncSetDataGroupMultiModels" title="SyncSetDataGroupMultiModels"><span class="octicon octicon-link"></span></a><span>SyncSetDataGroupMultiModels</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool SyncSetDataGroupMultiModels(string dataName, uint[] data, byte[] ids = null)</code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GroupSyncWrite用いて複数モーターに同時にデータを書き込む。データフィールド名が同一であれば、異なるアドレスでも送信する。その場合、ユニークなアドレス毎にSyncSetDataGroupを呼び出す。SyncSetDataGroupの説明を参照してください。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>SetUpメソッドもしくはSetIDsForUseメソッドによってIDとモデル番号が保持されていなければ使用できません。</span></p>
+</div><h3 id="SyncSetSignedDataGroup" data-id="SyncSetSignedDataGroup"><a class="anchor hidden-xs" href="#SyncSetSignedDataGroup" title="SyncSetSignedDataGroup"><span class="octicon octicon-link"></span></a><span>SyncSetSignedDataGroup</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool SyncSetSignedDataGroup(ushort ADDR, ushort LEN, int[] data, byte[] ids = null)</code><br>
+<code>public bool SyncSetSignedDataGroup(ControlTableAddressInfo addressInfo, int[] data, byte[] ids = null) </code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GroupSyncWrite用いて複数モーターに同時に符号付きデータを書き込む。SyncSetDataGroupの説明を参照してください。</span></p>
+</li>
+</ul><h3 id="SyncSetSignedDataGroupMultiModels" data-id="SyncSetSignedDataGroupMultiModels"><a class="anchor hidden-xs" href="#SyncSetSignedDataGroupMultiModels" title="SyncSetSignedDataGroupMultiModels"><span class="octicon octicon-link"></span></a><span>SyncSetSignedDataGroupMultiModels</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool SyncSetSignedDataGroupMultiModels(string dataName, int[] data, byte[] ids = null) </code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GroupSyncWrite用いて複数モーターに同時に符号付きデータを書き込む。SyncSetDataGroupMultiModelsの説明を参照してください。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>SetUpメソッドもしくはSetIDsForUseメソッドによってIDとモデル番号が保持されていなければ使用できません。</span></p>
+</div><h3 id="SyncGetDataGroup" data-id="SyncGetDataGroup"><a class="anchor hidden-xs" href="#SyncGetDataGroup" title="SyncGetDataGroup"><span class="octicon octicon-link"></span></a><span>SyncGetDataGroup</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public uint[] SyncGetDataGroup(ushort ADDR, ushort LEN, byte[] ids = null)</code><br>
+<code>public uint[] SyncGetDataGroup(ControlTableAddressInfo addressInfo, byte[] ids = null)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ushort ADDR</dt>
+      <dd>読み取るデータフィールドのアドレス。モデルのControl Tableを参照。</dd>
+      <dt>ushort LEN</dt>
+      <dd>読み取るデータフィールドのサイズ。モデルのControl Tableを参照。</dd>
+      <dt>ControlTableAddressInfo addressInfo</dt>
+      <dd>Control Tableの各データフィールドのアドレス、長さ、アクセスを含む構造体。</dd>
+      <dt>byte[] ids = null</dt>
+      <dd>対象のID。nullが指定されるとDynamixelForUnityに保持されているIDが対象になる。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>読み取ったデータ配列。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GroupSyncRead用いて複数モーターから同時にデータを読み取る。</span></p>
+</li>
+</ul><h3 id="SyncGetDataGroupMultiModels" data-id="SyncGetDataGroupMultiModels"><a class="anchor hidden-xs" href="#SyncGetDataGroupMultiModels" title="SyncGetDataGroupMultiModels"><span class="octicon octicon-link"></span></a><span>SyncGetDataGroupMultiModels</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public uint[] SyncGetDataGroupMultiModels(string dataName, byte[] ids = null) </code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GroupSyncReadを用いて複数モーターに同時にデータを読み取る。データフィールド名が同一であれば、異なるアドレスでも送信する。その場合、ユニークなアドレス毎にSyncSetDataGroupを呼び出す。SyncGetDataGroupの説明を参照してください。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>SetUpメソッドもしくはSetIDsForUseメソッドによってIDとモデル番号が保持されていなければ使用できません。</span></p>
+</div><h3 id="SyncGetSignedDataGroup" data-id="SyncGetSignedDataGroup"><a class="anchor hidden-xs" href="#SyncGetSignedDataGroup" title="SyncGetSignedDataGroup"><span class="octicon octicon-link"></span></a><span>SyncGetSignedDataGroup</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public int[] SyncGetSignedDataGroup(ushort ADDR, ushort LEN, byte[] ids = null)</code><br>
+<code>public int[] SyncGetSignedDataGroup(ControlTableAddressInfo addressInfo, byte[] ids = null) </code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GroupSyncReadを用いて複数モーターに同時に符号付きデータを読み取る。SyncGetDataGroupの説明を参照してください。</span></p>
+</li>
+</ul><h3 id="SyncGetSignedDataGroupMultiModels" data-id="SyncGetSignedDataGroupMultiModels"><a class="anchor hidden-xs" href="#SyncGetSignedDataGroupMultiModels" title="SyncGetSignedDataGroupMultiModels"><span class="octicon octicon-link"></span></a><span>SyncGetSignedDataGroupMultiModels</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public int[] SyncGetSignedDataGroupMultiModels(string dataName, byte[] ids = null) </code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GroupSyncReadを用いて複数モーターに同時に符号付きデータを読み取る。SyncGetDataGroupMultiModelsの説明を参照してください。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>SetUpメソッドもしくはSetIDsForUseメソッドによってIDとモデル番号が保持されていなければ使用できません。</span></p>
+</div><h3 id="BulkSetDataGroup" data-id="BulkSetDataGroup"><a class="anchor hidden-xs" href="#BulkSetDataGroup" title="BulkSetDataGroup"><span class="octicon octicon-link"></span></a><span>BulkSetDataGroup</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public BulkWritePacket BulkSetDataGroup()  </code></p>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>BulkWritePacketオブジェクト。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GroupBulkWriteを用いて複数モーターに一括でデータを書き込むためのBulkWritePacketオブジェクトを返す。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>GroupBulkWriteを行うにはBulkWritePacketを媒介するメソッドチェーンで記述します。</span></p>
+</div><h3 id="BulkGetDataGroup" data-id="BulkGetDataGroup"><a class="anchor hidden-xs" href="#BulkGetDataGroup" title="BulkGetDataGroup"><span class="octicon octicon-link"></span></a><span>BulkGetDataGroup</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public BulkReadPacket BulkGetDataGroup() </code></p>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>BulkReadPacketオブジェクト。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>GroupBulkReadを用いて複数モーターに一括でデータを読み取るためのBulkReadPacketオブジェクトを返す。</span></p>
+</li>
+</ul><div class="alert alert-info">
+<p><span>GroupBulkReadを行うにはBulkReadPacketを媒介するメソッドチェーンで記述します。</span></p>
+</div><h2 id="コントロールテーブルの使用方法" data-id="コントロールテーブルの使用方法"><a class="anchor hidden-xs" href="#コントロールテーブルの使用方法" title="コントロールテーブルの使用方法"><span class="octicon octicon-link"></span></a><span>コントロールテーブルの使用方法</span></h2><p><span>各Dynamixelサーボモーターのコントロールテーブルを表すテキストファイルを作成しました。コントロールテーブルは、各プロパティ名を対応するサーボモーターモデル内のレジスタ番号にマッピングしています。</span></p><p><span>これらのコントロールテーブルは、ROBOTIS e-Manualにあるサーボモーターのコントロールテーブルに対応しています。</span></p><p><span>以下の場所でコントロールテーブルのデータを確認できます： HatsuMuv/DynamixelForUnity/Resources/ControlTables/。</span></p><p><span>スクリーンショットのように、対応するサーボモーターを見つけてください：</span><br>
+<img src="https://hackmd.io/_uploads/r1lCvg-n3.jpg" alt="ControlTable" loading="lazy"></p><p><span>これらのコントロールテーブルは、D4Uのさまざまなメソッドのパラメータとして使用できます。パラメータ名を文字列として渡すことで、さまざまなサーボモーターの制御やフィードバックを行うことができます。</span><br>
+<span>例：</span></p><pre><code class="wrap Csharp hljs"><span class="hljs-regexp">//</span> 以下のメソッドでコントロールテーブルのパラメータを読み取るためにコントロールテーブルのパラメータを渡すことができます。ここで、コントロールテーブルのパラメータは設定/読み取りする必要のあるレジスタの文字列表現に対応します。
+
+<span class="hljs-regexp">//</span> この例では、SyncGetDataGroupMultiModelsメソッドを使用してデータを一括で設定しています。
+SyncGetDataGroupMultiModels(<span class="hljs-string">"GoalPosition"</span>);
+</code></pre><h2 id="BulkWritePacketの使用方法" data-id="BulkWritePacketの使用方法"><a class="anchor hidden-xs" href="#BulkWritePacketの使用方法" title="BulkWritePacketの使用方法"><span class="octicon octicon-link"></span></a><span>BulkWritePacketの使用方法</span></h2><p><span>Bulk Writeコマンドの実行には、次の手順が含まれます：</span></p><ol>
+<li><span>Bulk Writeパラメータを保持するための構造体を初期化する。</span></li>
+<li><span>構造体にパラメータを追加する。</span></li>
+<li><span>Bulk Writeコマンドを送信する。</span></li>
+<li><span>（オプション）コマンドの実行結果を読み取る。</span></li>
+</ol><p><span>上記の4つのステップを実行するために、BulkWritePacketオブジェクトが使用されます。以下で説明されているように、そのプロパティを設定し、メソッドを呼び出すことでこれらの手順を実行できます。</span></p><h4 id="ステップ1-構造体の初期化" data-id="ステップ1-構造体の初期化"><a class="anchor hidden-xs" href="#ステップ1-構造体の初期化" title="ステップ1-構造体の初期化"><span class="octicon octicon-link"></span></a><span>ステップ1. 構造体の初期化</span></h4><p><span>書き込みパケットのパラメータを保持するための構造体を初期化するために、まず関連するBulkWritePacketオブジェクトを宣言して初期化する必要があります。以下のように行います：</span></p><pre><code class="wrap Csharp hljs"><span class="hljs-comment">// bulk write packet</span>
+BulkWritePacket writePacket <span class="hljs-operator">=</span> dynamixelForUnity.BulkSetDataGroup();
+</code></pre><h4 id="ステップ2-パラメータの追加" data-id="ステップ2-パラメータの追加"><a class="anchor hidden-xs" href="#ステップ2-パラメータの追加" title="ステップ2-パラメータの追加"><span class="octicon octicon-link"></span></a><span>ステップ2. パラメータの追加</span></h4><p><span>BulkWritePacketオブジェクトを作成すると、書き込むデータはパラメータとして作成したオブジェクトに追加する必要があります。以下のように行います：</span></p><pre><code class="wrap Csh hljs">writePacket.<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo1</span>, <span class="hljs-params">idArray1</span>, <span class="hljs-params">data1</span>)</span>;
+<span class="hljs-comment">// 必要なだけパラメータを追加できます</span>
+writePacket.<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo2</span>, <span class="hljs-params">idArray2</span>, <span class="hljs-params">data2</span>)</span>;
+writePacket.<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo3</span>, <span class="hljs-params">idArray3</span>, <span class="hljs-params">data3</span>)</span>;
+</code></pre><h4 id="ステップ3-バルクライトコマンドの送信" data-id="ステップ3-バルクライトコマンドの送信"><a class="anchor hidden-xs" href="#ステップ3-バルクライトコマンドの送信" title="ステップ3-バルクライトコマンドの送信"><span class="octicon octicon-link"></span></a><span>ステップ3. バルクライトコマンドの送信</span></h4><p><span>パラメータを追加したら、BulkWritePacketオブジェクトのSend()メソッドを呼び出すことでコマンドを実行できます。以下のように行います：</span></p><pre><code class="wrap Csh hljs">writePacket.Send();
+</code></pre><h4 id="ステップ4-（オプション）BulkWriteコマンドの実行結果の確認" data-id="ステップ4-（オプション）BulkWriteコマンドの実行結果の確認"><a class="anchor hidden-xs" href="#ステップ4-（オプション）BulkWriteコマンドの実行結果の確認" title="ステップ4-（オプション）BulkWriteコマンドの実行結果の確認"><span class="octicon octicon-link"></span></a><span>ステップ4. （オプション）BulkWriteコマンドの実行結果の確認</span></h4><p><span>コマンドのステータスを確認することもできます。コマンドが正常に実行されたかどうかを確認するために、プロパティ「AllSuccess」をチェックできます。これはコマンドが成功した場合にtrueに設定されます。</span></p><pre><code>Csharp!
+if(writePacket.AllSuccess)
+    Debug.Log("成功");
+</code></pre><p><span>また、コマンドが成功したかどうかを確認するために、BulkPacketオブジェクト自体を’if’条件文内に直接配置することもできます。</span></p><pre><code class="wrap Csh hljs"><span class="hljs-keyword">if</span>(writePacket)
+    Debug.Log(<span class="hljs-string">"成功"</span>);
+</code></pre><p><span>全体的に、以下のようにして効率的に4つのステップを1行で実行できます：</span></p><pre><code class="wrap Csharp hljs"><span class="hljs-keyword">if</span>(dynamixelForUnity
+    .<span class="hljs-constructor">BulkSetDataGroup()</span>
+    .<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo1</span>, <span class="hljs-params">idArray1</span>, <span class="hljs-params">data1</span>)</span>
+    .<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo2</span>, <span class="hljs-params">idArray2</span>, <span class="hljs-params">data2</span>)</span>
+    .<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo3</span>, <span class="hljs-params">idArray3</span>, <span class="hljs-params">data3</span>)</span>
+    .<span class="hljs-constructor">Send()</span>)
+    Debug.<span class="hljs-constructor">Log(<span class="hljs-string">"成功"</span>)</span>;
+
+</code></pre><p><span>GroupBulkWriteを用いて複数モーターに一括でデータを書き込むためのオブジェクト。BulkWritePacketを媒介するメソッドチェーンで記述する。</span><br>
+<span>例</span></p><pre><code class="wrap Csharp hljs">dynamixelForUnity.<span class="hljs-constructor">BulkSetDataGroup()</span>
+    .<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo1</span>, <span class="hljs-params">idArray1</span>, <span class="hljs-params">data1</span>)</span>
+    .<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo2</span>, <span class="hljs-params">idArray2</span>, <span class="hljs-params">data2</span>)</span>
+    .<span class="hljs-constructor">Send()</span>;
+</code></pre><h3 id="プロパティ1" data-id="プロパティ"><a class="anchor hidden-xs" href="#プロパティ1" title="プロパティ1"><span class="octicon octicon-link"></span></a><span>プロパティ</span></h3><table>
+<thead>
+<tr>
+<th><span>プロパティ名</span></th>
+<th><span>説明</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>IDParamPair</span></td>
+<td><span>Dictionary&lt;byte, ParamInfo&gt;型。各IDと書き込むデータフィールドの情報を保持。ParamInfoはアドレス、長さ、成功したか、送信するデータを保持する。読み取り専用。</span></td>
+</tr>
+<tr>
+<td><span>AllSuccess</span></td>
+<td><span>全てのパラメータの通信が成功したかを表す真偽値。読み取り専用。</span></td>
+</tr>
+<tr>
+<td><span>HasSent</span></td>
+<td><span>コマンドが送信されたかを表す真偽値。読み取り専用。</span></td>
+</tr>
+</tbody>
+</table><h3 id="AddParam" data-id="AddParam"><a class="anchor hidden-xs" href="#AddParam" title="AddParam"><span class="octicon octicon-link"></span></a><span>AddParam</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public BulkWritePacket AddParam(ushort ADDR, ushort LEN, uint[] data, byte[] ids = null)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ushort ADDR</dt>
+      <dd>書き込むデータフィールドのアドレス。モデルのControl Tableを参照。</dd>
+      <dt>ushort LEN</dt>
+      <dd>書き込むデータフィールドのサイズ。モデルのControl Tableを参照。</dd>
+      <dt>uint[] data</dt>
+      <dd>書き込むデータ。</dd>
+      <dt>byte[] id</dt>
+      <dd>対象のID。nullが指定されるとDynamixelForUnityに保持されているIDが対象になる。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>自身。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>書き込むデータフィールドの情報とデータをIDParamPairに格納する。</span></p>
+</li>
+</ul><hr><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public BulkWritePacket AddParam(ControlTableAddressInfo addressInfo, uint[] data, byte[] ids = null)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ControlTableAddressInfo addressInfo</dt>
+      <dd>Control Tableの各データフィールドのアドレス、長さ、アクセスを含む構造体。</dd>
+  <dt>uint[] data</dt>
+      <dd>書き込むデータ。</dd>
+      <dt>byte[] id</dt>
+      <dd>対象のID。nullが指定されるとDynamixelForUnityに保持されているIDが対象になる。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>自身。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>AddParam(ushort ADDR, ushort LEN, uint[] data, byte[] ids = null)を使用して書き込むデータフィールドの情報とデータをIDParamPairに格納する。データフィールドが読み取り専用であれば実行されない。</span></p>
+</li>
+</ul><h3 id="AddParamSigned" data-id="AddParamSigned"><a class="anchor hidden-xs" href="#AddParamSigned" title="AddParamSigned"><span class="octicon octicon-link"></span></a><span>AddParamSigned</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public BulkWritePacket AddParamSigned(ushort ADDR, ushort LEN, int[] data, byte[] ids = null)</code><br>
+<code>public BulkWritePacket AddParamSigned(ControlTableAddressInfo addressInfo, int[] data, byte[] ids = null) </code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>書き込むデータフィールドの情報と符号付きデータをIDParamPairに格納する。AddParamの説明を参照してください。</span></p>
+</li>
+</ul><h3 id="Send" data-id="Send"><a class="anchor hidden-xs" href="#Send" title="Send"><span class="octicon octicon-link"></span></a><span>Send</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public BulkWritePacket Send(bool discardAllWhenErrorHappen = false)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>bool discardAllWhenErrorHappen = false</dt>
+      <dd>tureにすると、AddParam操作の間にエラーが発生した場合にコマンドを送信せずに処理を中断する。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>自身。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>IDParamPairに基づいてGroupBulkWriteコマンドをDynamxielモーターに送信する。</span></p>
+</li>
+</ul><h3 id="ResetStatus" data-id="ResetStatus"><a class="anchor hidden-xs" href="#ResetStatus" title="ResetStatus"><span class="octicon octicon-link"></span></a><span>ResetStatus</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public void ResetStatus()</code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>通信結果と送信フラグをリセットする。書き込むデータは削除されない。</span></p>
+</li>
+</ul><h2 id="BulkReadPacketの使用方法" data-id="BulkReadPacketの使用方法"><a class="anchor hidden-xs" href="#BulkReadPacketの使用方法" title="BulkReadPacketの使用方法"><span class="octicon octicon-link"></span></a><span>BulkReadPacketの使用方法</span></h2><p><span>bulk readの実行には以下のステップが含まれます：</span></p><ol>
+<li><span>bulk readのパラメータを保持するための構造体を初期化します。</span></li>
+<li><span>構造体にパラメータを追加します。</span></li>
+<li><span>bulk readコマンドを送信します。</span></li>
+<li><span>（オプション）コマンドの実行結果を読み取ります。</span></li>
+<li><span>サーボモーターからの返された値を読み取ります。</span></li>
+<li></li>
+</ol><p><span>上記の4つのステップを実行するためには、BulkReadPacketオブジェクトを使用してそのプロパティを設定し、下記で説明するようにメソッドを呼び出す必要があります。</span></p><h4 id="ステップ1-構造体の初期化1" data-id="ステップ1-構造体の初期化"><a class="anchor hidden-xs" href="#ステップ1-構造体の初期化1" title="ステップ1-構造体の初期化1"><span class="octicon octicon-link"></span></a><span>ステップ1. 構造体の初期化</span></h4><p><span>読み取りパケットのパラメータを保持するための構造体を初期化するには、まず関連するBulkReadPacketオブジェクトを次のように宣言して初期化します：</span></p><pre><code class="wrap Csharp hljs"><span class="hljs-comment">// bulk read packet</span>
+BulkReadPacket readPacket <span class="hljs-operator">=</span> dynamixelForUnity.BulkGetDataGroup();
+</code></pre><h4 id="ステップ2-パラメータの追加1" data-id="ステップ2-パラメータの追加"><a class="anchor hidden-xs" href="#ステップ2-パラメータの追加1" title="ステップ2-パラメータの追加1"><span class="octicon octicon-link"></span></a><span>ステップ2. パラメータの追加</span></h4><p><span>BulkReadPacketオブジェクトを作成したら、読み取るデータをオブジェクトにパラメータとして追加する必要があります。以下のように行えます：</span></p><pre><code class="wrap Csharp hljs">readPacket.<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo1</span>, <span class="hljs-params">idArray1</span>)</span>;
+<span class="hljs-comment">// 必要なだけパラメータを追加できます</span>
+readPacket.<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo2</span>, <span class="hljs-params">idArray2</span>)</span>;
+readPacket.<span class="hljs-constructor">AddParam(<span class="hljs-params">addressInfo3</span>, <span class="hljs-params">idArray3</span>)</span>;
+</code></pre><h4 id="ステップ3-バルクリードコマンドの送信" data-id="ステップ3-バルクリードコマンドの送信"><a class="anchor hidden-xs" href="#ステップ3-バルクリードコマンドの送信" title="ステップ3-バルクリードコマンドの送信"><span class="octicon octicon-link"></span></a><span>ステップ3. バルクリードコマンドの送信</span></h4><p><span>パラメータを追加したら、BulkReadPacketオブジェクトのSend()メソッドを呼び出すことでコマンドを実行できます：</span></p><pre><code class="wrap Csharp hljs">readPacket.Send();
+</code></pre><h4 id="ステップ4-（オプション）バルクリードコマンド実行の結果の確認" data-id="ステップ4-（オプション）バルクリードコマンド実行の結果の確認"><a class="anchor hidden-xs" href="#ステップ4-（オプション）バルクリードコマンド実行の結果の確認" title="ステップ4-（オプション）バルクリードコマンド実行の結果の確認"><span class="octicon octicon-link"></span></a><span>ステップ4. （オプション）バルクリードコマンド実行の結果の確認</span></h4><p><span>コマンドのステータス、つまり正常に実行されたかどうかをオプションで確認できます。プロパティ"AllSuccess"をチェックすることで、コマンドが正常に実行された場合にtrueに設定されます。</span></p><pre><code class="wrap Csharp hljs"><span class="hljs-keyword">if</span>(readPacket.AllSuccess)
+    Debug.Log(<span class="hljs-string">"成功"</span>);
+</code></pre><p><span>代わりに、直接BulkPacketオブジェクトを「if」条件式に配置して、コマンドが成功したかどうかを確認することもできます。</span></p><pre><code class="wrap Csharp hljs"><span class="hljs-keyword">if</span>(readPacket)
+    Debug.Log(<span class="hljs-string">"成功"</span>);
+</code></pre><h4 id="ステップ5-サーボモーターからの返された値の読み取り" data-id="ステップ5-サーボモーターからの返された値の読み取り"><a class="anchor hidden-xs" href="#ステップ5-サーボモーターからの返された値の読み取り" title="ステップ5-サーボモーターからの返された値の読み取り"><span class="octicon octicon-link"></span></a><span>ステップ5. サーボモーターからの返された値の読み取り</span></h4><p><span>バルクリードコマンドを実行した後にサーボモーターから読み取ったデータを読むには、BulkReadPacketのGetData()メソッドを以下のように使用します：</span></p><pre><code class="wrap csharp hljs"><span class="token comment">// サーボモーターからの結果を格納するためのuint配列を作成します</span>
+<span class="token class-name"><span class="token keyword">uint</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> data <span class="token operator">=</span> readPacket<span class="token punctuation">.</span><span class="token function">GetData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><span>全体的に、以下のようにしてステップを実行し、結果を表示できます：</span><br>
+<span>例：</span></p><pre><code class="wrap Csharp hljs"><span class="hljs-keyword">if</span>(<span class="hljs-keyword">var</span> readPacket <span class="hljs-operator">=</span> dynamixelForUnity
+    .BulkGetDataGroup()
+    .AddParam(addressInfo1, idArray1)
+    .AddParam(addressInfo2, idArray2)
+    .AddParam(addressInfo3, idArray3)
+    .Send())
+{
+    Debug.Log(<span class="hljs-string">"成功"</span>);
+    <span class="hljs-keyword">uint</span>[] data <span class="hljs-operator">=</span> readPacket.GetData();
+    Debug.Log(<span class="hljs-string">"データ："</span> <span class="hljs-operator">+</span> <span class="hljs-built_in">string</span>.Join(<span class="hljs-string">", "</span>, data));
+}
+</code></pre><h3 id="プロパティ2" data-id="プロパティ"><a class="anchor hidden-xs" href="#プロパティ2" title="プロパティ2"><span class="octicon octicon-link"></span></a><span>プロパティ</span></h3><table>
+<thead>
+<tr>
+<th><span>プロパティ名</span></th>
+<th><span>説明</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>IDParamPair</span></td>
+<td><span>Dictionary&lt;byte, ParamInfo&gt;型。各IDと読み取るデータフィールドの情報を持つ。ParamInfoはアドレス、長さ、成功したか、読み取ったデータを持つ。読み取り専用。</span></td>
+</tr>
+<tr>
+<td><span>AllSuccess</span></td>
+<td><span>全てのパラメータの通信が成功したかを表す真偽値。読み取り専用。</span></td>
+</tr>
+<tr>
+<td><span>HasSent</span></td>
+<td><span>コマンドが送信されたかを表す真偽値。読み取り専用。</span></td>
+</tr>
+</tbody>
+</table><h3 id="AddParam1" data-id="AddParam"><a class="anchor hidden-xs" href="#AddParam1" title="AddParam1"><span class="octicon octicon-link"></span></a><span>AddParam</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public BulkReadPacket AddParam(ushort ADDR, ushort LEN, byte[] ids = null)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ushort ADDR</dt>
+      <dd>読み取るデータフィールドのアドレス。モデルのControl Tableを参照。</dd>
+      <dt>ushort LEN</dt>
+      <dd>読み取るデータフィールドのサイズ。モデルのControl Tableを参照。</dd>
+      <dt>byte[] id</dt>
+      <dd>対象のID。nullが指定されるとDynamixelForUnityに保持されているIDが対象になる。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>自身。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>読み取るデータフィールドの情報とデータをIDParamPairに格納する。</span></p>
+</li>
+</ul><hr><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public BulkReadPacket AddParam(ControlTableAddressInfo addressInfo, byte[] ids = null)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>ControlTableAddressInfo addressInfo</dt>
+      <dd>Control Tableの各データフィールドのアドレス、長さ、アクセスを含む構造体。</dd>
+      <dt>byte[] id</dt>
+      <dd>対象のID。nullが指定されるとDynamixelForUnityに保持されているIDが対象になる。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>自身。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>AddParam(ushort ADDR, ushort LEN, byte[] ids = null)を使用して読み取るデータフィールドの情報をIDParamPairに格納する。</span></p>
+</li>
+</ul><h3 id="Send1" data-id="Send"><a class="anchor hidden-xs" href="#Send1" title="Send1"><span class="octicon octicon-link"></span></a><span>Send</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public BulkReadPacket Send(bool discardAllWhenErrorHappen = false)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>bool discardAllWhenErrorHappen = false</dt>
+      <dd>tureにすると、AddParam操作の間にエラーが発生した場合にコマンドを送信せずに処理を中断する。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>自身。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>IDParamPairに基づいてGroupBulkReadコマンドをDynamxielモーターに送信する。</span></p>
+</li>
+</ul><h3 id="GetData1" data-id="GetData"><a class="anchor hidden-xs" href="#GetData1" title="GetData1"><span class="octicon octicon-link"></span></a><span>GetData</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public uint[] GetData(bool resetStatus = false)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>bool resetStatus</dt>
+      <dd>trueにすると、終了時にResetStatusメソッドを呼びます。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>読み取ったデータ配列。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>読み取ったデータ配列を取得する。</span></p>
+</li>
+</ul><h3 id="GetSignedData1" data-id="GetSignedData"><a class="anchor hidden-xs" href="#GetSignedData1" title="GetSignedData1"><span class="octicon octicon-link"></span></a><span>GetSignedData</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public int[] GetSignedData(bool resetStatus = false)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>bool resetStatus</dt>
+      <dd>trueにすると、終了時にResetStatusメソッドを呼びます。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>読み取ったデータ配列。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>読み取った符号付きデータ配列を取得する。</span></p>
+</li>
+</ul><h3 id="ResetStatus1" data-id="ResetStatus"><a class="anchor hidden-xs" href="#ResetStatus1" title="ResetStatus1"><span class="octicon octicon-link"></span></a><span>ResetStatus</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public void ResetStatus()</code></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>通信結果と送信フラグをリセットする。読み取ったデータも削除する。</span></p>
+</li>
+</ul><h2 id="ParamInfo" data-id="ParamInfo"><a class="anchor hidden-xs" href="#ParamInfo" title="ParamInfo"><span class="octicon octicon-link"></span></a><span>ParamInfo</span></h2><p><span>BulkWritePacket、BulkReadPacketでデータフィールドを表すクラス。</span></p><h3 id="変数1" data-id="変数"><a class="anchor hidden-xs" href="#変数1" title="変数1"><span class="octicon octicon-link"></span></a><span>変数</span></h3><table>
+<thead>
+<tr>
+<th><span>変数名</span></th>
+<th><span>説明</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>address</span></td>
+<td><span>データのアドレス。</span></td>
+</tr>
+<tr>
+<td><span>length</span></td>
+<td><span>データの長さ。</span></td>
+</tr>
+<tr>
+<td><span>isSuccess</span></td>
+<td><span>通信に成功したかどうか</span></td>
+</tr>
+<tr>
+<td><span>data</span></td>
+<td><span>BulkWritePacketでは書き込むデータ。BulkReadPacketでは読み取ったデータ。</span></td>
+</tr>
+</tbody>
+</table><h2 id="ControlTables" data-id="ControlTables"><a class="anchor hidden-xs" href="#ControlTables" title="ControlTables"><span class="octicon octicon-link"></span></a><span>ControlTables</span></h2><p><span>各モーターのControl Tableを格納するクラス。Control Tableは指定された形式で書かれたテキストをコンストラクタの引数に入れることで初期化します。コンストラクタはstring[]かTextAsset[]のどちらかを引数に取ります。</span></p><p><span>DynamxielForUnity対応モデルのControl TableのテキストファイルがAssets/HatsuMuv/DynamixelForUnity/Resources/ControlTablesに配置されています。</span><br>
+<span>使用例はControlTableInjectorFromResourcesを参照してください。</span></p><p><span>ControlTablesは初期化時に利用するモーターのControlTableを。</span><br>
+<span>1行目はモデル名とモデル番号を":“を挟んで記述します。</span><br>
+<span>そのほかの行はデータ名、アドレス、長さ、アクセスを記述します。アクセスは読み取り専用ならば"R”、書き込みも可能であるなら"RW"を指定します。</span><br>
+<span>"#“や”//"で開始される行はコメントとして無視されます。</span></p><pre><code class="hljs"><div class="wrapper"><div class="gutter linenumber"><span></span>
+<span></span>
+<span></span>
+<span></span></div><div class="code">&lt;モデル名&gt;:&lt;モデル番号&gt;
+&lt;データ名&gt;, &lt;アドレス&gt;, &lt;長さ&gt;, &lt;アクセス&gt;
+&lt;データ名&gt;, &lt;アドレス&gt;, &lt;長さ&gt;, &lt;アクセス&gt;
+...
+</div></div></code></pre><h3 id="プロパティ3" data-id="プロパティ"><a class="anchor hidden-xs" href="#プロパティ3" title="プロパティ3"><span class="octicon octicon-link"></span></a><span>プロパティ</span></h3><table>
+<thead>
+<tr>
+<th><span>プロパティ名</span></th>
+<th><span>説明</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>ModelNames</span></td>
+<td><span>モデル番号に対応するモデル名を表すDictionary&lt;int, string&gt; 型。</span></td>
+</tr>
+</tbody>
+</table><h3 id="GetAddrssInfo" data-id="GetAddrssInfo"><a class="anchor hidden-xs" href="#GetAddrssInfo" title="GetAddrssInfo"><span class="octicon octicon-link"></span></a><span>GetAddrssInfo</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public ControlTableAddressInfo GetAddrssInfo(int modelNumber, string dataName)</code><br>
+<code>public ControlTableAddressInfo this[int modelNumber, string dataName] </code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>int modelNumber</dt>
+      <dd>モデル番号。</dd>
+      <dt>string dataName</dt>
+      <dd>データ名。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>データフィールドの情報を表すControlTableAddressInfo型。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定したモデル番号とデータ名からデータフィールドの情報を表すControlTableAddressInfo型を返す。</span><br>
+<span>インデクサー[int modelNubmer, string dataName]でも同様の結果を得られる。</span></p>
+</li>
+</ul><h3 id="GetControlTable" data-id="GetControlTable"><a class="anchor hidden-xs" href="#GetControlTable" title="GetControlTable"><span class="octicon octicon-link"></span></a><span>GetControlTable</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public Dictionary&lt;string, ControlTableAddressInfo&gt; GetControlTable(int modelNumber)</code><br>
+<code>public Dictionary&lt;string, ControlTableAddressInfo&gt; this[int modelNumber] </code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>int modelNumber</dt>
+      <dd>対象のモデル番号。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>コントロールテーブルを表すDictionary&lt;string, ControlTableAddressInfo&gt;型。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたモデル番号からコントロールテーブルを表すDictionary&lt;string, ControlTableAddressInfo&gt;型を返す。</span><br>
+<span>インデクサー[int modelNubmer]でも同様の結果を得られる。</span></p>
+</li>
+</ul><h3 id="Contains" data-id="Contains"><a class="anchor hidden-xs" href="#Contains" title="Contains"><span class="octicon octicon-link"></span></a><span>Contains</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool Contains(int modelNumber)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>int modelNubmer</dt>
+      <dd>調べるモデル番号。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>指定されたモデル番号のControl Tableが存在すればtrue、そうでなければfalseを返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定したモデル番号のControl Tableが存在するかを返す。</span></p>
+</li>
+</ul><hr><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public bool Contains(int modelNumber, string dataName)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>int modelNubmer</dt>
+      <dd>調べるモデル番号。</dd>
+      <dt>string dataName</dt>
+      <dd>調べるデータ名。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>指定されたモデル番号のControl Tableが存在し、かつ指定されたデータ名のデータフィールドが存在すればtrueを、そうでなければfalseを返す。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定したモデル番号のデータ名のデータフィールドが存在するかを返す。</span></p>
+</li>
+</ul><h3 id="GetModelsContains" data-id="GetModelsContains"><a class="anchor hidden-xs" href="#GetModelsContains" title="GetModelsContains"><span class="octicon octicon-link"></span></a><span>GetModelsContains</span></h3><ul>
+<li>
+<p><span>宣言</span><br>
+<code>public int[] GetModelsContains(string dataName)</code></p>
+</li>
+<li>
+<p><span>引数</span></p>
+  <dl>
+      <dt>string dataName</dt>
+      <dd>調べるデータ名。</dd>
+  </dl>
+</li>
+<li>
+<p><span>返り値</span><br>
+<span>指定されたデータ名のデータフィールドをControl Tableに持つモデル番号の配列。</span></p>
+</li>
+<li>
+<p><span>説明</span><br>
+<span>指定されたデータ名のデータフィールドをControl Tableに持つモデル番号の配列を返す。</span></p>
+</li>
+</ul><h2 id="ControlTableAddressInfo" data-id="ControlTableAddressInfo"><a class="anchor hidden-xs" href="#ControlTableAddressInfo" title="ControlTableAddressInfo"><span class="octicon octicon-link"></span></a><span>ControlTableAddressInfo</span></h2><p><span>Control Tableにおけるデータフィールドの情報を表す構造体。</span></p><h3 id="変数2" data-id="変数"><a class="anchor hidden-xs" href="#変数2" title="変数2"><span class="octicon octicon-link"></span></a><span>変数</span></h3><table>
+<thead>
+<tr>
+<th><span>変数名</span></th>
+<th><span>説明</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>address</span></td>
+<td><span>データのアドレス。</span></td>
+</tr>
+<tr>
+<td><span>length</span></td>
+<td><span>データの長さ。</span></td>
+</tr>
+<tr>
+<td><span>readWrite</span></td>
+<td><span>書き込み可能ならtrue、読み取り専用ならばfalse。</span></td>
+</tr>
+</tbody>
+</table><h2 id="IControlTableUser" data-id="IControlTableUser"><a class="anchor hidden-xs" href="#IControlTableUser" title="IControlTableUser"><span class="octicon octicon-link"></span></a><span>IControlTableUser</span></h2><p><span>コントロールテーブルを注入するインターフェース。DynamixelForUnityが実装します。</span></p><h3 id="SetControlTables" data-id="SetControlTables"><a class="anchor hidden-xs" href="#SetControlTables" title="SetControlTables"><span class="octicon octicon-link"></span></a><span>SetControlTables</span></h3><ul>
+<li><span>宣言</span><br>
+<code>public void SetControlTables(ControlTables controlTables)</code></li>
+</ul><h2 id="Core" data-id="Core"><a class="anchor hidden-xs" href="#Core" title="Core"><span class="octicon octicon-link"></span></a><span>Core</span></h2><p><span>Dynamixel SDK互換のクラス。コンストラクタにHatsuVerifオブジェクトを入れインスタンスを生成してください。</span></p><h1 id="6Example-Sceneの解説" data-id="6Example-Sceneの解説"><a class="anchor hidden-xs" href="#6Example-Sceneの解説" title="6Example-Sceneの解説"><span class="octicon octicon-link"></span></a><span>6.Example Sceneの解説</span></h1><p><span>HatsuMuv/DynamixelForUnity/Example/ExampleScene_x64.unity はDynamixelForUnityを用いたGUIアプリケーションのサンプルです。</span></p><p><span>このシーンには、DynamixelForUnityを使用してDynamixelサーボモーターと接続、サーボモーターのスキャン、サーボモーターの制御、サーボモーターから読み取ったさまざまな情報のGUIへの表示を行う、サンプルのグラフィカルユーザーインターフェース（GUI）アプリケーションが含まれています。</span></p><h2 id="画面の解説" data-id="画面の解説"><a class="anchor hidden-xs" href="#画面の解説" title="画面の解説"><span class="octicon octicon-link"></span></a><span>画面の解説</span></h2><p><img src="https://hackmd.io/_uploads/Sylmk0x2n.jpg" alt="" loading="lazy"></p><ol>
+<li><span>ヒエラルキーメニューでDynamixelForUnityゲームオブジェクトを選択します。</span></li>
+</ol><p><img src="https://hackmd.io/_uploads/Skw6tax3n.jpg" alt="" loading="lazy"></p><ol start="2">
+<li>
+<p><span>インスペクターウィンドウで、</span><strong><span>DynamixelForUnity</span></strong><span>コンポーネントに、</span><strong><span>メールアドレス</span></strong><span>と</span><strong><span>SNコード</span></strong><span>を、</span><strong><span>デバイス名</span></strong><span>フィールドには、Dynamixelサーボモーターに接続されたUSBシリアルポートを入力します（ポート名は</span><strong><span>デバイスマネージャー</span></strong><span>から取得できます 例：「COM3」）。</span></p>
+</li>
+<li>
+<p><span>（オプション）操作するサーボモーターのボーレートを知っている場合は、事前にDynamixelForUnityのインスペクターでボーレートを設定します。分からない場合は空白のままにします。（後に記述するC#スクリプトのDynamixelForUnityのSetUpメソッドにてスキャンされますが、これには時間がかかることがあります）。</span></p>
+</li>
+</ol><p><span>DynamixelForUnityのコンポーネントの設定が完了したら、再生ボタンをクリックしてください。DynamixelForUnityは自動的に指定されたポートを開き、利用可能なサーボモーターに接続します。</span></p><p><img src="https://hackmd.io/_uploads/BkQmC6g2n.png" alt="" loading="lazy"></p><p><span>画面には接続されたDynamixelサーボモーターの一覧が表示されます。接続されたボーレートは画面の上部に表示されます。</span></p><p><span>画面下部の読み取り専用のデータ項目は常に更新されています（現在位置など）。</span></p><p><span>その他の項目は、接続時とデータが入力された場合に更新されます（例えば、サーボモーターの新しい位置を設定する場合など）。</span></p><p><strong><span>ヒント: 実際の値と異なる場合は、データを再取得するためにリフレッシュボタンを押してください。</span></strong></p><h2 id="実装の解説" data-id="実装の解説"><a class="anchor hidden-xs" href="#実装の解説" title="実装の解説"><span class="octicon octicon-link"></span></a><span>実装の解説</span></h2><h3 id="D4UExampleController" data-id="D4UExampleController"><a class="anchor hidden-xs" href="#D4UExampleController" title="D4UExampleController"><span class="octicon octicon-link"></span></a><span>D4UExampleController</span></h3><h4 id="Start" data-id="Start"><a class="anchor hidden-xs" href="#Start" title="Start"><span class="octicon octicon-link"></span></a><span>Start()</span></h4><pre><code class="wrap Csharp hljs"><span class="hljs-keyword">private</span> async void Start()
+{
+    NeedWait <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;
+    
+    <span class="hljs-keyword">if</span> (d4u <span class="hljs-operator">=</span><span class="hljs-operator">=</span> null)
+    {
+        Debug.LogError(<span class="hljs-string">"[DynamixelForUnitySample] DynamixelForUnity is not assigned!"</span>);
+        <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">// Varificate your licence here</span>
+    d4u.Varificate(<span class="hljs-keyword">new</span> DevTest.HatsuVarif(licenceFilePath: <span class="hljs-string">"some"</span>, userID: <span class="hljs-string">"some"</span>, email: <span class="hljs-string">"example@sample.com"</span>, phonenumber: <span class="hljs-string">"123456789"</span>));
+
+    cancellationTokenSource <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> CancellationTokenSource();
+
+    <span class="hljs-keyword">var</span> connectResult <span class="hljs-operator">=</span> await Task.Run(() <span class="hljs-operator">=</span><span class="hljs-operator">&gt;</span> InitializeDynamixel(cancellationTokenSource.Token));
+    <span class="hljs-keyword">if</span> (connectResult) StartMotorMetrics();
+
+    NeedWait <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+}
+</code></pre><p><span>NeedWaitプロパティは画面ロードアニメーションを再生するために外部から参照されています。</span></p><p><span>DynamixelForUnity d4uはInspectorから代入されることを期待しています。</span></p><p><span>d4u.Varificateメソッドを用いてライセンスの認証を行ってください。</span></p><p><span>cancellationTokenSourceは非同期タスクを中断するために作成します。</span></p><p><span>モーターに接続し初期化をするメソッドInitializeDynamixelを非同期で実行しこれを待ち受けます。</span></p><p><span>InitializeDynamixelによってDynamixelモーターを接続できたならばStartMotorMetricsｍメソッドによってモーターの状態を連続して計測し続けるループが開始されます。</span></p><hr><h4 id="InitializeDynamixelCancellationToken-ct" data-id="InitializeDynamixelCancellationToken-ct"><a class="anchor hidden-xs" href="#InitializeDynamixelCancellationToken-ct" title="InitializeDynamixelCancellationToken-ct"><span class="octicon octicon-link"></span></a><span>InitializeDynamixel(CancellationToken ct)</span></h4><pre><code class="wrap Csharp hljs"><span class="hljs-keyword">private</span> async Task<span class="hljs-operator">&lt;</span><span class="hljs-keyword">bool</span><span class="hljs-operator">&gt;</span> InitializeDynamixel(CancellationToken ct)
+{
+    <span class="hljs-keyword">if</span> (d4u <span class="hljs-operator">=</span><span class="hljs-operator">=</span> null)
+    {
+        Debug.LogError(<span class="hljs-string">"[DynamixelForUnitySample] DynamixelForUnity is not assigned!"</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-operator">!</span>d4u.ConnectStatus)
+    {
+        <span class="hljs-keyword">var</span> connectResult <span class="hljs-operator">=</span> d4u.ConnectDynamixel();
+        <span class="hljs-keyword">if</span> (<span class="hljs-operator">!</span>connectResult)
+        {
+            Debug.LogError(<span class="hljs-string">"[DynamixelForUnitySample] Dynamixel is not connected. Connect it first."</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+
+        await d4u.SetUpAsync(cancellationToken:ct);
+    }
+
+    motors <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> List<span class="hljs-operator">&lt;</span>DynamixelMotor<span class="hljs-operator">&gt;</span>();
+    ids <span class="hljs-operator">=</span> d4u.IDsForUse;
+
+    <span class="hljs-keyword">if</span> (ids.Length <span class="hljs-operator">=</span><span class="hljs-operator">=</span> <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+
+    await GetAllMotorProperty(ct);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+</code></pre><p><span>d4u.ConnectDynamixelメソッドでモーターと接続します。引数にポート名、ボーレートを指定することもできます。その場合Inspectorで入力された値は無視されます。</span></p><p><span>SetUpAsyncメソッドは二つのメソッドを呼んで、モーターのスキャンと見つかったIDの保持を一括で行います。</span></p><ol>
+<li><span>ScanInBaudRateAsyncメソッドを呼んで指定されたポート名、ボーレートでDynamixelモーターをスキャンします。モーターが見つからなかった場合、すべてのボーレートでスキャンを再実行し、最初にモーターが見つかったボーレートにポートを設定します。</span></li>
+<li><span>SetIDsForUseメソッドを呼んで見つかったモーターのIDとモデル番号を保持します。</span></li>
+</ol><div class="alert alert-info">
+<p><span>モーターIDとモデル番号をDynamixelForUnityに保持させることで、データフィールド名だけで命令を送信できる、一部の関数ですべてのモーターへの命令を送信する際に簡潔に書くことができる、などの恩恵があります。</span></p>
+</div><p><span>ExampleSceneを作る上で、モーターの情報を扱う際にDynamixelMotorクラスを実装しています。あなたの作成するアプリケーションに応じてプロパティを追加してください。</span></p><p><span>GetAllMotorPropertyメソッドによってすべてのモーターのプロパティを取得し、DynamixelMotorインスタンスを作成します。</span></p><hr><h4 id="GetAllMotorPropertyCancellationToken-ct" data-id="GetAllMotorPropertyCancellationToken-ct"><a class="anchor hidden-xs" href="#GetAllMotorPropertyCancellationToken-ct" title="GetAllMotorPropertyCancellationToken-ct"><span class="octicon octicon-link"></span></a><span>GetAllMotorProperty(CancellationToken ct)</span></h4><pre><code class="wrap Csharp hljs"><span class="hljs-keyword">private</span> async Task GetAllMotorProperty(CancellationToken ct)
+{
+    OperatingMode[] operatingModes <span class="hljs-operator">=</span> 
+        await Task.Run(() <span class="hljs-operator">=</span><span class="hljs-operator">&gt;</span>
+            d4u.SyncGetDataGroupMultiModels(<span class="hljs-string">"OperatingMode"</span>)
+                .Select(d <span class="hljs-operator">=</span><span class="hljs-operator">&gt;</span> (OperatingMode)d)
+                .ToArray(),
+            ct);
+
+    float[] homingOffsets <span class="hljs-operator">=</span> await Task.Run(() <span class="hljs-operator">=</span><span class="hljs-operator">&gt;</span> d4u.SyncGetSignedDataGroupMultiModels(<span class="hljs-string">"HomingOffset"</span>).ToActualNumber(UNIT.POSITION).ToFloatArray(), ct);
+    ...
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i <span class="hljs-operator">&lt;</span> ids.Length; i<span class="hljs-operator">+</span><span class="hljs-operator">+</span>)
+    {
+        DynamixelMotor m;
+        <span class="hljs-keyword">if</span> (motors.Count <span class="hljs-operator">&lt;</span> i <span class="hljs-operator">+</span> <span class="hljs-number">1</span>) 
+        {
+            m <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> DynamixelMotor(ids[i]);
+            motors.Add(m);
+        }
+        <span class="hljs-keyword">else</span>
+        {
+            m <span class="hljs-operator">=</span> motors[i];
+        }
+        m.OperatingMode <span class="hljs-operator">=</span> operatingModes[i];
+        m.HomingOffset <span class="hljs-operator">=</span> homingOffsets[i];
+        ...
+    }
+}
+</code></pre><p><span>DynamixelMotorクラスの一つ一つのプロパティについてSyncGetSignedDataGroupMultiModelsメソッドで取得しています。一つのプロパティを例に挙げて説明します。</span></p><pre><code class="wrap cs hljs"><span class="hljs-built_in">float</span>[] homingOffsets = 
+    <span class="hljs-keyword">await</span> Task.Run(
+        () =&gt; d4u.SyncGetSignedDataGroupMultiModels(<span class="hljs-string">"HomingOffset"</span>)
+            .ToActualNumber(UNIT.POSITION)
+            .ToFloatArray(),
+        ct
+    );
+</code></pre><p><span>homingOffsetsを初期化する行にわかりやすく改行を入れたものです。</span></p><p><span>2行目のTask.Runメソッドは第一引数の関数を別スレッドで非同期に実行するものです。</span></p><p><span>3行目からは別スレッドで実行したい関数です。</span></p><p><span>d4u.SyncGetSignedDataGroupMultiModels(“HomingOffset”)はDynamixelForUnityに保持されているすべてのモーターに対して"HomingOffset"というデータフィールドの値を取得します。</span></p><p><span>.ToActualNumber(UNIT.POSITION)はSyncGetSignedDataGroupMultiModelsから得られた生のデータに単位を適用します。UNIT.POSITIONは定数です。</span></p><p><span>.ToFloatArray()はdouble[]をfloat[]に変換します。</span></p><div class="alert alert-info">
+<p><span>MotorMetricsはGetAllMotorPropertyからいくつかのデータをそぎ落とした同様のメソッドです。</span></p>
+</div><hr><h4 id="StartMotorMetrics" data-id="StartMotorMetrics"><a class="anchor hidden-xs" href="#StartMotorMetrics" title="StartMotorMetrics"><span class="octicon octicon-link"></span></a><span>StartMotorMetrics()</span></h4><h4 id="MotorMetricsLoopCancellationToken-ct" data-id="MotorMetricsLoopCancellationToken-ct"><a class="anchor hidden-xs" href="#MotorMetricsLoopCancellationToken-ct" title="MotorMetricsLoopCancellationToken-ct"><span class="octicon octicon-link"></span></a><span>MotorMetricsLoop(CancellationToken ct)</span></h4><h4 id="StopMotorMetrics" data-id="StopMotorMetrics"><a class="anchor hidden-xs" href="#StopMotorMetrics" title="StopMotorMetrics"><span class="octicon octicon-link"></span></a><span>StopMotorMetrics()</span></h4><pre><code class="wrap cs hljs"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">StartMotorMetrics</span>()</span>
+{
+    <span class="hljs-keyword">if</span> (!d4u.ConnectStatus)
+        <span class="hljs-keyword">return</span>;
+
+    cancellationTokenSource = cancellationTokenSource ?? <span class="hljs-keyword">new</span> CancellationTokenSource();
+    <span class="hljs-keyword">var</span> cancellationToken = cancellationTokenSource.Token;
+    metricsLoop = MotorMetricsLoop(cancellationToken);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">MotorMetricsLoop</span>(<span class="hljs-params">CancellationToken ct</span>)</span>
+{
+    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)
+    {
+        <span class="hljs-keyword">if</span> (ct.IsCancellationRequested)
+            <span class="hljs-keyword">return</span>;
+
+        Debug.Log(<span class="hljs-string">"[SampleController] Metrics"</span>);
+        <span class="hljs-keyword">try</span>
+        {
+            <span class="hljs-keyword">await</span> MotorMetrics(ct);
+        }
+        <span class="hljs-keyword">catch</span> (OperationCanceledException)
+        {
+            Debug.Log(<span class="hljs-string">"[SampleController] Metrics canceled"</span>);
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-keyword">catch</span> (Exception e)
+        {
+            Debug.LogError(e);
+            <span class="hljs-keyword">return</span>;
+        }
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">StopMotorMetrics</span>()</span>
+{
+    <span class="hljs-keyword">if</span> (cancellationTokenSource != <span class="hljs-literal">null</span> &amp;&amp; !cancellationTokenSource.IsCancellationRequested)
+    {
+        cancellationTokenSource.Cancel();
+        cancellationTokenSource.Dispose();
+        cancellationTokenSource = <span class="hljs-literal">null</span>;
+
+        <span class="hljs-keyword">if</span>(metricsLoop != <span class="hljs-literal">null</span>)
+            <span class="hljs-keyword">await</span> metricsLoop;
+    }
+}
+</code></pre><p><span>連続的にモーターのデータを計測し続けるループを実行するメソッド群です。MotorMetricsLoopはCancellationTokenによってキャンセルされるまでMotorMetricsを呼び出し続けます。</span><br>
+<span>StopMotorMetricsはMotorMetricsをキャンセルし、処理が終了するまで待ち受けます。</span></p><h3 id="D4UExampleUI" data-id="D4UExampleUI"><a class="anchor hidden-xs" href="#D4UExampleUI" title="D4UExampleUI"><span class="octicon octicon-link"></span></a><span>D4UExampleUI</span></h3><p><span>UI要素の生成を行います。</span><br>
+<span>D4UExampleControllerからモーター毎のパネルを生成し、それらのデータを更新させます。</span></p><h3 id="D4UExampleUIElement" data-id="D4UExampleUIElement"><a class="anchor hidden-xs" href="#D4UExampleUIElement" title="D4UExampleUIElement"><span class="octicon octicon-link"></span></a><span>D4UExampleUIElement</span></h3><p><span>各パネルのフィールドを直接コントロールしている。UI要素から入力を受けるとD4UExampleContorllerに値を渡す。</span></p></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li><a href="#目次" title="目次">目次</a></li>
+<li><a href="#1-概要" title="1. 概要">1. 概要</a><ul class="nav">
+<li><a href="#対応OS" title="対応OS">対応OS</a></li>
+<li><a href="#対応プロトコル" title="対応プロトコル">対応プロトコル</a></li>
+<li><a href="#対応Dynamixelモデル" title="対応Dynamixelモデル">対応Dynamixelモデル</a></li>
+</ul>
+</li>
+<li><a href="#2-インストール" title="2. インストール">2. インストール</a></li>
+<li><a href="#3-ライセンス購入とアクティベーション" title="3. ライセンス購入とアクティベーション">3. ライセンス購入とアクティベーション</a></li>
+<li><a href="#4-クイックスタート" title="4. クイックスタート">4. クイックスタート</a><ul class="nav">
+<li><a href="#新規シーンの作成" title="新規シーンの作成">新規シーンの作成</a></li>
+<li><a href="#Cスクリプトのコーディング" title="C#スクリプトのコーディング">C#スクリプトのコーディング</a></li>
+<li><a href="#実行" title="実行">実行</a></li>
+</ul>
+</li>
+<li><a href="#5-Script-Reference" title="5. Script Reference">5. Script Reference</a><ul class="nav">
+<li><a href="#DynamixelForUnity" title="DynamixelForUnity">DynamixelForUnity</a><ul class="nav">
+<li><a href="#定数" title="定数">定数</a></li>
+<li><a href="#変数" title="変数">変数</a></li>
+<li><a href="#プロパティ" title="プロパティ">プロパティ</a></li>
+<li><a href="#Verificate" title="Verificate">Verificate</a></li>
+<li><a href="#ConnectDynamixel" title="ConnectDynamixel">ConnectDynamixel</a></li>
+<li><a href="#ScanInBaudRate" title="ScanInBaudRate">ScanInBaudRate</a></li>
+<li><a href="#ScanInBaudRateAsync" title="ScanInBaudRateAsync">ScanInBaudRateAsync</a></li>
+<li><a href="#Ping" title="Ping">Ping</a></li>
+<li><a href="#PingGetModelNumber" title="PingGetModelNumber">PingGetModelNumber</a></li>
+<li><a href="#GetAllModelNumber" title="GetAllModelNumber">GetAllModelNumber</a></li>
+<li><a href="#SetControlTable" title="SetControlTable">SetControlTable</a></li>
+<li><a href="#SetUp" title="SetUp">SetUp</a></li>
+<li><a href="#SetUpAsync" title="SetUpAsync">SetUpAsync</a></li>
+<li><a href="#SetIDsForUse" title="SetIDsForUse">SetIDsForUse</a></li>
+<li><a href="#DisconnectDynamixel" title="DisconnectDynamixel">DisconnectDynamixel</a></li>
+<li><a href="#CloseAndReopenPort" title="CloseAndReopenPort">CloseAndReopenPort</a></li>
+<li><a href="#RebootDynamixel" title="RebootDynamixel">RebootDynamixel</a></li>
+<li><a href="#FactoryResetDynamixel" title="FactoryResetDynamixel">FactoryResetDynamixel</a></li>
+<li><a href="#SetBaudRate" title="SetBaudRate">SetBaudRate</a></li>
+<li><a href="#SetData" title="SetData">SetData</a></li>
+<li><a href="#SetSignedData" title="SetSignedData">SetSignedData</a></li>
+<li><a href="#GetData" title="GetData">GetData</a></li>
+<li><a href="#GetSignedData" title="GetSignedData">GetSignedData</a></li>
+<li><a href="#SyncSetDataGroup" title="SyncSetDataGroup">SyncSetDataGroup</a></li>
+<li><a href="#SyncSetDataGroupMultiModels" title="SyncSetDataGroupMultiModels">SyncSetDataGroupMultiModels</a></li>
+<li><a href="#SyncSetSignedDataGroup" title="SyncSetSignedDataGroup">SyncSetSignedDataGroup</a></li>
+<li><a href="#SyncSetSignedDataGroupMultiModels" title="SyncSetSignedDataGroupMultiModels">SyncSetSignedDataGroupMultiModels</a></li>
+<li><a href="#SyncGetDataGroup" title="SyncGetDataGroup">SyncGetDataGroup</a></li>
+<li><a href="#SyncGetDataGroupMultiModels" title="SyncGetDataGroupMultiModels">SyncGetDataGroupMultiModels</a></li>
+<li><a href="#SyncGetSignedDataGroup" title="SyncGetSignedDataGroup">SyncGetSignedDataGroup</a></li>
+<li><a href="#SyncGetSignedDataGroupMultiModels" title="SyncGetSignedDataGroupMultiModels">SyncGetSignedDataGroupMultiModels</a></li>
+<li><a href="#BulkSetDataGroup" title="BulkSetDataGroup">BulkSetDataGroup</a></li>
+<li><a href="#BulkGetDataGroup" title="BulkGetDataGroup">BulkGetDataGroup</a></li>
+</ul>
+</li>
+<li><a href="#コントロールテーブルの使用方法" title="コントロールテーブルの使用方法">コントロールテーブルの使用方法</a></li>
+<li><a href="#BulkWritePacketの使用方法" title="BulkWritePacketの使用方法">BulkWritePacketの使用方法</a><ul class="nav">
+<li><a href="#プロパティ1" title="プロパティ">プロパティ</a></li>
+<li><a href="#AddParam" title="AddParam">AddParam</a></li>
+<li><a href="#AddParamSigned" title="AddParamSigned">AddParamSigned</a></li>
+<li><a href="#Send" title="Send">Send</a></li>
+<li><a href="#ResetStatus" title="ResetStatus">ResetStatus</a></li>
+</ul>
+</li>
+<li><a href="#BulkReadPacketの使用方法" title="BulkReadPacketの使用方法">BulkReadPacketの使用方法</a><ul class="nav">
+<li><a href="#プロパティ2" title="プロパティ">プロパティ</a></li>
+<li><a href="#AddParam1" title="AddParam">AddParam</a></li>
+<li><a href="#Send1" title="Send">Send</a></li>
+<li><a href="#GetData1" title="GetData">GetData</a></li>
+<li><a href="#GetSignedData1" title="GetSignedData">GetSignedData</a></li>
+<li><a href="#ResetStatus1" title="ResetStatus">ResetStatus</a></li>
+</ul>
+</li>
+<li><a href="#ParamInfo" title="ParamInfo">ParamInfo</a><ul class="nav">
+<li><a href="#変数1" title="変数">変数</a></li>
+</ul>
+</li>
+<li><a href="#ControlTables" title="ControlTables">ControlTables</a><ul class="nav">
+<li><a href="#プロパティ3" title="プロパティ">プロパティ</a></li>
+<li><a href="#GetAddrssInfo" title="GetAddrssInfo">GetAddrssInfo</a></li>
+<li><a href="#GetControlTable" title="GetControlTable">GetControlTable</a></li>
+<li><a href="#Contains" title="Contains">Contains</a></li>
+<li><a href="#GetModelsContains" title="GetModelsContains">GetModelsContains</a></li>
+</ul>
+</li>
+<li><a href="#ControlTableAddressInfo" title="ControlTableAddressInfo">ControlTableAddressInfo</a><ul class="nav">
+<li><a href="#変数2" title="変数">変数</a></li>
+</ul>
+</li>
+<li><a href="#IControlTableUser" title="IControlTableUser">IControlTableUser</a><ul class="nav">
+<li><a href="#SetControlTables" title="SetControlTables">SetControlTables</a></li>
+</ul>
+</li>
+<li><a href="#Core" title="Core">Core</a></li>
+</ul>
+</li>
+<li><a href="#6Example-Sceneの解説" title="6.Example Sceneの解説">6.Example Sceneの解説</a><ul class="nav">
+<li><a href="#画面の解説" title="画面の解説">画面の解説</a></li>
+<li><a href="#実装の解説" title="実装の解説">実装の解説</a><ul class="nav">
+<li><a href="#D4UExampleController" title="D4UExampleController">D4UExampleController</a></li>
+<li><a href="#D4UExampleUI" title="D4UExampleUI">D4UExampleUI</a></li>
+<li><a href="#D4UExampleUIElement" title="D4UExampleUIElement">D4UExampleUIElement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部見る</a><a class="back-to-top" href="#">トップへ戻る</a><a class="go-to-bottom" href="#">底へ移る</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li><a href="#目次" title="目次">目次</a></li>
+<li><a href="#1-概要" title="1. 概要">1. 概要</a><ul class="nav">
+<li><a href="#対応OS" title="対応OS">対応OS</a></li>
+<li><a href="#対応プロトコル" title="対応プロトコル">対応プロトコル</a></li>
+<li><a href="#対応Dynamixelモデル" title="対応Dynamixelモデル">対応Dynamixelモデル</a></li>
+</ul>
+</li>
+<li><a href="#2-インストール" title="2. インストール">2. インストール</a></li>
+<li><a href="#3-ライセンス購入とアクティベーション" title="3. ライセンス購入とアクティベーション">3. ライセンス購入とアクティベーション</a></li>
+<li><a href="#4-クイックスタート" title="4. クイックスタート">4. クイックスタート</a><ul class="nav">
+<li><a href="#新規シーンの作成" title="新規シーンの作成">新規シーンの作成</a></li>
+<li><a href="#Cスクリプトのコーディング" title="C#スクリプトのコーディング">C#スクリプトのコーディング</a></li>
+<li><a href="#実行" title="実行">実行</a></li>
+</ul>
+</li>
+<li><a href="#5-Script-Reference" title="5. Script Reference">5. Script Reference</a><ul class="nav">
+<li><a href="#DynamixelForUnity" title="DynamixelForUnity">DynamixelForUnity</a><ul class="nav">
+<li><a href="#定数" title="定数">定数</a></li>
+<li><a href="#変数" title="変数">変数</a></li>
+<li><a href="#プロパティ" title="プロパティ">プロパティ</a></li>
+<li><a href="#Verificate" title="Verificate">Verificate</a></li>
+<li><a href="#ConnectDynamixel" title="ConnectDynamixel">ConnectDynamixel</a></li>
+<li><a href="#ScanInBaudRate" title="ScanInBaudRate">ScanInBaudRate</a></li>
+<li><a href="#ScanInBaudRateAsync" title="ScanInBaudRateAsync">ScanInBaudRateAsync</a></li>
+<li><a href="#Ping" title="Ping">Ping</a></li>
+<li><a href="#PingGetModelNumber" title="PingGetModelNumber">PingGetModelNumber</a></li>
+<li><a href="#GetAllModelNumber" title="GetAllModelNumber">GetAllModelNumber</a></li>
+<li><a href="#SetControlTable" title="SetControlTable">SetControlTable</a></li>
+<li><a href="#SetUp" title="SetUp">SetUp</a></li>
+<li><a href="#SetUpAsync" title="SetUpAsync">SetUpAsync</a></li>
+<li><a href="#SetIDsForUse" title="SetIDsForUse">SetIDsForUse</a></li>
+<li><a href="#DisconnectDynamixel" title="DisconnectDynamixel">DisconnectDynamixel</a></li>
+<li><a href="#CloseAndReopenPort" title="CloseAndReopenPort">CloseAndReopenPort</a></li>
+<li><a href="#RebootDynamixel" title="RebootDynamixel">RebootDynamixel</a></li>
+<li><a href="#FactoryResetDynamixel" title="FactoryResetDynamixel">FactoryResetDynamixel</a></li>
+<li><a href="#SetBaudRate" title="SetBaudRate">SetBaudRate</a></li>
+<li><a href="#SetData" title="SetData">SetData</a></li>
+<li><a href="#SetSignedData" title="SetSignedData">SetSignedData</a></li>
+<li><a href="#GetData" title="GetData">GetData</a></li>
+<li><a href="#GetSignedData" title="GetSignedData">GetSignedData</a></li>
+<li><a href="#SyncSetDataGroup" title="SyncSetDataGroup">SyncSetDataGroup</a></li>
+<li><a href="#SyncSetDataGroupMultiModels" title="SyncSetDataGroupMultiModels">SyncSetDataGroupMultiModels</a></li>
+<li><a href="#SyncSetSignedDataGroup" title="SyncSetSignedDataGroup">SyncSetSignedDataGroup</a></li>
+<li><a href="#SyncSetSignedDataGroupMultiModels" title="SyncSetSignedDataGroupMultiModels">SyncSetSignedDataGroupMultiModels</a></li>
+<li><a href="#SyncGetDataGroup" title="SyncGetDataGroup">SyncGetDataGroup</a></li>
+<li><a href="#SyncGetDataGroupMultiModels" title="SyncGetDataGroupMultiModels">SyncGetDataGroupMultiModels</a></li>
+<li><a href="#SyncGetSignedDataGroup" title="SyncGetSignedDataGroup">SyncGetSignedDataGroup</a></li>
+<li><a href="#SyncGetSignedDataGroupMultiModels" title="SyncGetSignedDataGroupMultiModels">SyncGetSignedDataGroupMultiModels</a></li>
+<li><a href="#BulkSetDataGroup" title="BulkSetDataGroup">BulkSetDataGroup</a></li>
+<li><a href="#BulkGetDataGroup" title="BulkGetDataGroup">BulkGetDataGroup</a></li>
+</ul>
+</li>
+<li><a href="#コントロールテーブルの使用方法" title="コントロールテーブルの使用方法">コントロールテーブルの使用方法</a></li>
+<li><a href="#BulkWritePacketの使用方法" title="BulkWritePacketの使用方法">BulkWritePacketの使用方法</a><ul class="nav">
+<li><a href="#プロパティ1" title="プロパティ">プロパティ</a></li>
+<li><a href="#AddParam" title="AddParam">AddParam</a></li>
+<li><a href="#AddParamSigned" title="AddParamSigned">AddParamSigned</a></li>
+<li><a href="#Send" title="Send">Send</a></li>
+<li><a href="#ResetStatus" title="ResetStatus">ResetStatus</a></li>
+</ul>
+</li>
+<li><a href="#BulkReadPacketの使用方法" title="BulkReadPacketの使用方法">BulkReadPacketの使用方法</a><ul class="nav">
+<li><a href="#プロパティ2" title="プロパティ">プロパティ</a></li>
+<li><a href="#AddParam1" title="AddParam">AddParam</a></li>
+<li><a href="#Send1" title="Send">Send</a></li>
+<li><a href="#GetData1" title="GetData">GetData</a></li>
+<li><a href="#GetSignedData1" title="GetSignedData">GetSignedData</a></li>
+<li><a href="#ResetStatus1" title="ResetStatus">ResetStatus</a></li>
+</ul>
+</li>
+<li><a href="#ParamInfo" title="ParamInfo">ParamInfo</a><ul class="nav">
+<li><a href="#変数1" title="変数">変数</a></li>
+</ul>
+</li>
+<li><a href="#ControlTables" title="ControlTables">ControlTables</a><ul class="nav">
+<li><a href="#プロパティ3" title="プロパティ">プロパティ</a></li>
+<li><a href="#GetAddrssInfo" title="GetAddrssInfo">GetAddrssInfo</a></li>
+<li><a href="#GetControlTable" title="GetControlTable">GetControlTable</a></li>
+<li><a href="#Contains" title="Contains">Contains</a></li>
+<li><a href="#GetModelsContains" title="GetModelsContains">GetModelsContains</a></li>
+</ul>
+</li>
+<li><a href="#ControlTableAddressInfo" title="ControlTableAddressInfo">ControlTableAddressInfo</a><ul class="nav">
+<li><a href="#変数2" title="変数">変数</a></li>
+</ul>
+</li>
+<li><a href="#IControlTableUser" title="IControlTableUser">IControlTableUser</a><ul class="nav">
+<li><a href="#SetControlTables" title="SetControlTables">SetControlTables</a></li>
+</ul>
+</li>
+<li><a href="#Core" title="Core">Core</a></li>
+</ul>
+</li>
+<li><a href="#6Example-Sceneの解説" title="6.Example Sceneの解説">6.Example Sceneの解説</a><ul class="nav">
+<li><a href="#画面の解説" title="画面の解説">画面の解説</a></li>
+<li><a href="#実装の解説" title="実装の解説">実装の解説</a><ul class="nav">
+<li><a href="#D4UExampleController" title="D4UExampleController">D4UExampleController</a></li>
+<li><a href="#D4UExampleUI" title="D4UExampleUI">D4UExampleUI</a></li>
+<li><a href="#D4UExampleUIElement" title="D4UExampleUIElement">D4UExampleUIElement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部見る</a><a class="back-to-top" href="#">トップへ戻る</a><a class="go-to-bottom" href="#">底へ移る</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
