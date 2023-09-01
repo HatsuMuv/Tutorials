@@ -1,5 +1,5 @@
 
-このプロジェクトは、DynamixelForUnityおよびさまざまなチュートリアルを含む完全なプロジェクトから構成されています。各チュートリアルは、以下のパスTutorials/Assetsの下にフォルダに整理されています。
+このプロジェクトは、DynamixelForUnityおよびさまざまなチュートリアルを含む完全なプロジェクトから構成されています。各チュートリアルは、以下のパスTutorials/Assets/HatsuMuvの下にフォルダに整理されています。
 
 以下のリンクから、DynamixelForUnityをご利用いただくために、無料の1か月間のサブスクリプションをアクティベートしてください : [リンク](https://www.hatsumuv.com/jp/service/dynamixelforunity)
 
