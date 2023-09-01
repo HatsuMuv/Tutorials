@@ -1,5 +1,6 @@
-DynamixelForUnity License: Get your free 1-month trial from this link:
+このプロジェクトは、DynamixelForUnityおよびさまざまなチュートリアルを含む完全なプロジェクトから構成されています。各チュートリアルは、以下のパスTutorials/Assetsの下にフォルダに整理されています。
 
+以下のリンクから、DynamixelForUnityをご利用いただくために、無料の1か月間のサブスクリプションをアクティベートしてください : [リンク](https://www.hatsumuv.com/jp/service/dynamixelforunity)
 
 # Hello Dynamixel - 1
 DynamixelForUnityを用いて、Unity3D上でDynamixelサーボモーターを制御する方法を学ぶ、チュートリアルシリーズ。
