@@ -1,3 +1,7 @@
+![enter image description here](https://images.squarespace-cdn.com/content/v1/63d93f3c1d22de05762b569c/bbbbf769-59d9-4597-9c00-7b4803f3cef8/DYNAMIXEL+FOR+UNITY.png?format=550w)
+
+ダイナミクセルへようこそ！
+この一連のチュートリアルでは、DynamixelForUnityを使用してロボティクス制御の基礎を学びます。DynamixelForUnityは、Dynamixelサーボモーターを効率的かつ簡単に制御するための強力なプラグインです！
 
 このプロジェクトは、DynamixelForUnityおよびさまざまなチュートリアルを含む完全なプロジェクトから構成されています。各チュートリアルは、以下のパスTutorials/Assets/HatsuMuvの下にフォルダに整理されています。
 
